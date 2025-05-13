@@ -71,7 +71,7 @@ const Head = () => {
                         },
                         move: {
                             enable: true,
-                            speed: 2,
+                            speed: 0.6,
                             direction: 'none',
                             random: true,
                             straight: false,
@@ -79,10 +79,11 @@ const Head = () => {
                             bounce: false,
                             attract: {
                                 enable: true,
-                                rotateX: 600,
-                                rotateY: 1200,
+                                rotateX: 5000,
+                                rotateY: 20000,
                             },
                         },
+
                     },
                     interactivity: {
                         detect_on: 'canvas',
@@ -91,15 +92,15 @@ const Head = () => {
                                 enable: true,
                                 mode: 'grab',
                             },
-                            onclick: {
-                                enable: true,
-                                mode: 'push',
-                            },
+                            // onclick: {
+                            //     enable: true,
+                            //     mode: 'push',
+                            // },
                             resize: true,
                         },
                         modes: {
                             grab: {
-                                distance: 140,
+                                distance: 120,
                                 links: {
                                     opacity: 1,
                                 },
