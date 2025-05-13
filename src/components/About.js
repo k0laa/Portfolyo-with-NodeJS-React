@@ -49,14 +49,12 @@ const About = () => {
                             textAlign: 'center',
                             mb: 6,
                             color: 'text.primary',
-                            zIndex : 2,
+                            zIndex : 10,
                             position : 'relative',
                             userSelect : 'text',
                             width : 'fit-content',
-
                             margin: '0 auto',
                             padding: '50px',
-
                         }}
                     >
                         Hakkımda

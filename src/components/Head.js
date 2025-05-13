@@ -11,6 +11,7 @@ const Head = () => {
 
     return (
         <Box
+            id="home"
             sx={{
                 minHeight: '100vh',
                 display: 'flex',

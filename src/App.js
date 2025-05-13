@@ -5,6 +5,7 @@ import Head from "./components/Head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import Skills from "./components/Skills";
 
 const theme = createTheme({
     palette: {
@@ -42,7 +43,7 @@ function App() {
                     <Navbar/>
                     <Head/>
                      <About />
-                    {/* <Skills /> */}
+                    <Skills />
                     {/* <Services /> */}
                     {/* <Timeline /> */}
                     {/* <Projects /> */}
