@@ -13,6 +13,7 @@ const Footer = () => {
                 borderTop: '1px solid',
                 borderColor: 'divider',
                 position: 'relative',
+                zIndex: 5,
             }}
         >
             <Container maxWidth="lg">

@@ -112,12 +112,21 @@ const Head = () => {
                     },
                     retina_detect: true,
                 }}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: -1, // Diğer bileşenlerin altında kalmasını sağlar
+                }}
             />
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
+                    sx={{zIndex : 2}}
                 >
                     <Typography
                         variant="h1"
@@ -126,6 +135,10 @@ const Head = () => {
                             fontWeight: 700,
                             mb: 2,
                             color: 'text.primary',
+                            zIndex : 10,
+                            position : 'relative',
+                            userSelect : 'text',
+                            width : 'fit-content',
                         }}
                     >
                         Merhaba, Ben Buğra 👋
@@ -136,6 +149,10 @@ const Head = () => {
                             fontSize: { xs: '1.5rem', md: '2rem' },
                             color: 'text.secondary',
                             mb: 4,
+                            zIndex : 10,
+                            position : 'relative',
+                            userSelect : 'text',
+                            width : 'fit-content',
                         }}
                     >
                         Gömülü Sistemler & AI Geliştiricisi
@@ -146,6 +163,10 @@ const Head = () => {
                             maxWidth: '600px',
                             mb: 4,
                             color: 'text.secondary',
+                            zIndex : 10,
+                            position : 'relative',
+                            userSelect : 'text',
+                            width : 'fit-content',
                         }}
                     >
                         Gömülü sistemler, yapay zeka ve web teknolojileri konusunda tutkulu bir geliştiriciyim.

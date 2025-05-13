@@ -4,6 +4,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import Head from "./components/Head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import About from "./components/About";
 
 const theme = createTheme({
     palette: {
@@ -40,8 +41,7 @@ function App() {
                 <div className="App">
                     <Navbar/>
                     <Head/>
-                    {/* Add your other components here */}
-                    {/* <About /> */}
+                     <About />
                     {/* <Skills /> */}
                     {/* <Services /> */}
                     {/* <Timeline /> */}
