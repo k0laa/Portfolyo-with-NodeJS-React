@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Skills from "./components/Skills";
+import Timeline from "./components/Timeline";
 
 const theme = createTheme({
     palette: {
@@ -42,15 +43,15 @@ function App() {
                 <div className="App">
                     <Navbar/>
                     <Head/>
-                     <About />
-                    <Skills />
+                    <About/>
+                    <Skills/>
                     {/* <Services /> */}
-                    {/* <Timeline /> */}
+                    <Timeline/>
                     {/* <Projects /> */}
                     {/* <Blog /> */}
                     {/* <Testimonials /> */}
                     {/* <Contact /> */}
-                    <Footer />
+                    <Footer/>
                 </div>
             </Router>
         </ThemeProvider>
