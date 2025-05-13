@@ -1,36 +1,31 @@
 import React from 'react';
 import {Box, Container, Typography, Grid, Paper} from '@mui/material';
 import {motion} from 'framer-motion';
-import {FaPython, FaJava, FaReact, FaNodeJs, FaDatabase, FaHtml5, FaICursor} from 'react-icons/fa';
+import {FaPython, FaJava, FaReact, FaHtml5} from 'react-icons/fa';
 import {
     SiTensorflow,
     SiArduino,
-    SiRaspberrypi,
     SiCplusplus,
     SiJavascript,
-    SiC,
     SiFlask,
-    SiTailwindcss,
     SiElectron,
     SiEspressif,
     SiAutodesk,
-    SiMongodb,
     SiSqlite,
     SiOpencv,
     SiPytorch,
     SiDrone,
-    SiJupyter,
-    SiJetbrains, SiUbuntu, SiUnity, SiPhoton, SiSelenium, SiPlotly, SiNumpy, SiVscodium, SiVsco, SiCurl
+    SiJetbrains, SiUbuntu, SiUnity, SiPhoton, SiSelenium, SiPlotly, SiNumpy, SiVsco, SiCurl
 } from 'react-icons/si';
 import * as PropTypes from "prop-types";
 
-function SiYolobit(props) {
+function SiYolobit() {
     return null;
 }
 
 SiYolobit.propTypes = {size: PropTypes.number};
 
-function SiGazebo(props) {
+function SiGazebo() {
     return null;
 }
 
