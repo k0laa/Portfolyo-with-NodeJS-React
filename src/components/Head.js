@@ -1,9 +1,10 @@
 import React from 'react';
-import {Box}  from '@mui/material';
+import { Box, Typography, Container, Button } from '@mui/material';
+import { motion } from 'framer-motion';
 import Particles from 'react-tsparticles';
-import {loadFull} from 'tsparticles';
+import { loadFull } from 'tsparticles';
 
-const Background = () => {
+const Head = () => {
     const particlesInit = async (main) => {
         await loadFull(main);
     };
@@ -111,8 +112,76 @@ const Background = () => {
                     retina_detect: true,
                 }}
             />
+            <Container maxWidth="lg">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            fontSize: { xs: '2.5rem', md: '4rem' },
+                            fontWeight: 700,
+                            mb: 2,
+                            color: 'text.primary',
+                        }}
+                    >
+                        Merhaba, Ben Buğra 👋
+                    </Typography>
+                    <Typography
+                        variant="h2"
+                        sx={{
+                            fontSize: { xs: '1.5rem', md: '2rem' },
+                            color: 'text.secondary',
+                            mb: 4,
+                        }}
+                    >
+                        Gömülü Sistemler & AI Geliştiricisi
+                    </Typography>
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            maxWidth: '600px',
+                            mb: 4,
+                            color: 'text.secondary',
+                        }}
+                    >
+                        Gömülü sistemler, yapay zeka ve web teknolojileri konusunda tutkulu bir geliştiriciyim.
+                        Savunma sanayi ve otonom sistemlerde AI ile fark yaratmayı hedefliyorum.
+                    </Typography>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                            href="#projects"
+                            sx={{
+                                borderRadius: '8px',
+                                textTransform: 'none',
+                                fontSize: '1.1rem',
+                            }}
+                        >
+                            Projelerimi Gör
+                        </Button>
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            size="large"
+                            href="#contact"
+                            sx={{
+                                borderRadius: '8px',
+                                textTransform: 'none',
+                                fontSize: '1.1rem',
+                            }}
+                        >
+                            İletişime Geç
+                        </Button>
+                    </Box>
+                </motion.div>
+            </Container>
         </Box>
     );
 };
 
-export default Background; 
+export default Head;

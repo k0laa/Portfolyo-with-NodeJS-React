@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Background from "./components/Background";
+import Head from "./components/Head";
 
 const theme = createTheme({
   palette: {
@@ -36,7 +36,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <div className="App">
-            <Background />
+            <Head />
           </div>
         </Router>
       </ThemeProvider>
