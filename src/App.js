@@ -3,6 +3,7 @@ import {ThemeProvider, createTheme} from '@mui/material';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Head from "./components/Head";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const theme = createTheme({
     palette: {
@@ -39,6 +40,16 @@ function App() {
                 <div className="App">
                     <Navbar/>
                     <Head/>
+                    {/* Add your other components here */}
+                    {/* <About /> */}
+                    {/* <Skills /> */}
+                    {/* <Services /> */}
+                    {/* <Timeline /> */}
+                    {/* <Projects /> */}
+                    {/* <Blog /> */}
+                    {/* <Testimonials /> */}
+                    {/* <Contact /> */}
+                    <Footer />
                 </div>
             </Router>
         </ThemeProvider>
