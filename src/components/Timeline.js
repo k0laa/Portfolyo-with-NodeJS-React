@@ -1,24 +1,16 @@
 import React from 'react';
-import { Box, Container, Typography, Paper } from '@mui/material';
-import { motion } from 'framer-motion';
+import {Box, Container, Typography, Paper} from '@mui/material';
+import {motion} from 'framer-motion';
 import {FaGraduationCap, FaHandsHelping} from 'react-icons/fa';
 
 const timelineData = [
     {
-        type: 'education',
-        title: 'Lise',
-        institution: 'Alanya Hüseyin Girenes Fen Lisesi',
-        date: '2019 - 2023',
-        description: 'Robotikle başlayan serüvenim, oyun geliştirmeyle devam etti; fark etmeden tutkum, mesleğim oldu. :)',
-        icon: <FaGraduationCap size={24} />,
-    },
-    {
-        type: 'education',
-        title: 'Bilgisayar Mühendisliği',
-        institution: 'Balıkesir Üniversitesi',
-        date: '2023 - Devam Ediyor',
-        description: 'Görüntü işleme, yapay zeka ve otonom sistemlere olan ilgimle, kendimi adım adım geliştirmeye çalışıyorum. Her yeni projede biraz daha öğreniyor, hayalime yaklaşmanın heyecanını yaşıyorum.',
-        icon: <FaGraduationCap size={24} />,
+        type: 'experience',
+        title: 'Yazılım Geliştirici – Savaşan İHA Takımı',
+        institution: 'MISYA Topluluğu | Balıkesir Üniversitesi',
+        date: '2024 - Devam ediyor',
+        description: 'MISYA topluluğunun Savaşan İHA takımında, PX4 ile Gazebo simülasyon ortamında YOLO tabanlı nesne tespiti ve otonom sistemler üzerine çalışmaktayım.',
+        icon: <FaHandsHelping size={24}/>,
     },
     {
         type: 'experience',
@@ -26,15 +18,23 @@ const timelineData = [
         institution: 'Altıeylül Belediyesi',
         date: '2024',
         description: 'Teknofest Ortaokul Robolig yarışması kapsamında, öğrencilere danışmanlık yaparak robotik proje geliştirme süreçlerinde rehberlik ettim. Takım çalışması ve mentorluk konusunda değerli deneyimler kazandım.',
-        icon: <FaHandsHelping  size={24} />,
+        icon: <FaHandsHelping size={24}/>,
     },
     {
-        type: 'experience',
-        title: 'Yazılım Geliştirici – Savaşan İHA Takımı',
-        institution: 'MISYA Topluluğu | Balıkesir Üniversitesi',
-        date: '2024 - Devam ediyor',
-        description: 'MISYA topluluğunun Savaşan İHA takımında, PX4 ile Gazebo simülasyon ortamında YOLO tabanlı nesne tespiti ve otonom sistemler üzerine çalışmaktayım.',
-        icon: <FaHandsHelping size={24} />,
+        type: 'education',
+        title: 'Bilgisayar Mühendisliği',
+        institution: 'Balıkesir Üniversitesi',
+        date: '2023 - Devam Ediyor',
+        description: 'Görüntü işleme, yapay zeka ve otonom sistemlere olan ilgimle, kendimi adım adım geliştirmeye çalışıyorum. Her yeni projede biraz daha öğreniyor, hayalime yaklaşmanın heyecanını yaşıyorum.',
+        icon: <FaGraduationCap size={24}/>,
+    },
+    {
+        type: 'education',
+        title: 'Lise',
+        institution: 'Alanya Hüseyin Girenes Fen Lisesi',
+        date: '2019 - 2023',
+        description: 'Robotikle başlayan serüvenim, oyun geliştirmeyle devam etti; fark etmeden tutkum, mesleğim oldu. :)',
+        icon: <FaGraduationCap size={24}/>,
     },
 ];
 
@@ -49,10 +49,10 @@ const Timeline = () => {
         >
             <Container maxWidth="lg">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                    initial={{opacity: 0, y: 20}}
+                    whileInView={{opacity: 1, y: 0}}
+                    transition={{duration: 0.8}}
+                    viewport={{once: true}}
                 >
                     <Typography
                         variant="h2"
@@ -65,7 +65,7 @@ const Timeline = () => {
                         Eğitim & Deneyim
                     </Typography>
 
-                    <Box sx={{ position: 'relative' }}>
+                    <Box sx={{position: 'relative'}}>
                         {/* Timeline çizgisi */}
                         <Box
                             sx={{
@@ -84,10 +84,10 @@ const Timeline = () => {
                         {timelineData.map((item, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                viewport={{ once: true }}
+                                initial={{opacity: 0, x: index % 2 === 0 ? -50 : 50}}
+                                whileInView={{opacity: 1, x: 0}}
+                                transition={{duration: 0.5, delay: index * 0.2}}
+                                viewport={{once: true}}
                             >
                                 <Box
                                     sx={{
@@ -105,7 +105,7 @@ const Timeline = () => {
                                         elevation={3}
                                         sx={{
                                             p: 3,
-                                            width: { xs: '100%', md: '45%' },
+                                            width: {xs: '100%', md: '45%'},
                                             ml: index % 2 === 0 ? 0 : 'auto',
                                             mr: index % 2 === 0 ? 'auto' : 0,
                                             backgroundColor: 'background.paper',
@@ -138,25 +138,25 @@ const Timeline = () => {
 
                                         <Typography
                                             variant="h6"
-                                            sx={{ color: 'text.primary', mb: 1 }}
+                                            sx={{color: 'text.primary', mb: 1}}
                                         >
                                             {item.title}
                                         </Typography>
                                         <Typography
                                             variant="subtitle1"
-                                            sx={{ color: 'primary.main', mb: 1 }}
+                                            sx={{color: 'primary.main', mb: 1}}
                                         >
                                             {item.institution}
                                         </Typography>
                                         <Typography
                                             variant="body2"
-                                            sx={{ color: 'text.secondary', mb: 1 }}
+                                            sx={{color: 'text.secondary', mb: 1}}
                                         >
                                             {item.date}
                                         </Typography>
                                         <Typography
                                             variant="body2"
-                                            sx={{ color: 'text.secondary' }}
+                                            sx={{color: 'text.secondary'}}
                                         >
                                             {item.description}
                                         </Typography>
