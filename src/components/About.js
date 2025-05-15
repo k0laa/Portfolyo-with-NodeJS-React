@@ -37,7 +37,6 @@ const About = () => {
             sx={{
                 py: 8,
                 backgroundColor: 'transparent',
-                position: 'relative',
                 overflow: 'hidden',
             }}
         >
@@ -71,7 +70,8 @@ const About = () => {
                         Hakkımda
                     </Typography>
 
-                    <Grid container spacing={4} alignItems="center">
+                    <Grid container spacing={4} alignItems="center"
+                    >
                         <Grid item xs={12} md={6}>
                             <motion.div
                                 initial={{opacity: 0, x: -50}}
@@ -85,6 +85,9 @@ const About = () => {
                                         mb: 3,
                                         color: 'text.primary',
                                         fontWeight: 600,
+                                        zIndex: 2,
+                                        position: 'relative',
+                                        userSelect: 'text',
                                     }}
                                 >
                                     Gömülü Sistemler & AI Geliştiricisi
@@ -96,6 +99,9 @@ const About = () => {
                                         color: 'text.secondary',
                                         lineHeight: 1.8,
                                         fontSize: '1.1rem',
+                                        zIndex: 2,
+                                        position: 'relative',
+                                        userSelect: 'text',
                                     }}
                                 >
                                     Merhaba, ben Buğra. Gömülü sistemlerden yapay zekâya, web teknolojilerinden çok
@@ -111,6 +117,9 @@ const About = () => {
                                         color: 'text.secondary',
                                         lineHeight: 1.8,
                                         fontSize: '1.1rem',
+                                        zIndex: 2,
+                                        position: 'relative',
+                                        userSelect: 'text',
                                     }}
                                 >
                                     ESP32 ile uğraşırken bir anda kendimi savaşan İHA'lara algoritma yazarken, ertesi
@@ -127,6 +136,9 @@ const About = () => {
                                         color: 'text.secondary',
                                         lineHeight: 1.8,
                                         fontSize: '1.1rem',
+                                        zIndex: 2,
+                                        position: 'relative',
+                                        userSelect: 'text',
                                     }}
                                 >
                                     Kod yazarken sadece "çalıştı" demekle yetinmem — neden çalıştı, daha iyi nasıl
@@ -145,6 +157,9 @@ const About = () => {
                                         color: 'text.secondary',
                                         lineHeight: 1.8,
                                         fontSize: '1.1rem',
+                                        zIndex: 2,
+                                        position: 'relative',
+                                        userSelect: 'text',
                                     }}
                                 >
                                     Kısaca, hayatım "debug" ile "deploy" arasında geçen bir serüven. Açık kaynak ruhunu
@@ -200,6 +215,9 @@ const About = () => {
                                                             p: 1,
                                                             borderRadius: '50%',
                                                             backgroundColor: 'rgba(108, 99, 255, 0.1)',
+                                                            zIndex: 2,
+                                                            position: 'relative',
+                                                            userSelect: 'text',
                                                         }}
                                                     >
                                                         {skill.icon}
@@ -210,6 +228,9 @@ const About = () => {
                                                             mb: 1,
                                                             color: 'text.primary',
                                                             fontWeight: 600,
+                                                            zIndex: 2,
+                                                            position: 'relative',
+                                                            userSelect: 'text',
                                                         }}
                                                     >
                                                         {skill.title}
