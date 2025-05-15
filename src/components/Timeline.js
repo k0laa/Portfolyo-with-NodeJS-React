@@ -44,7 +44,7 @@ const Timeline = () => {
             id="timeline"
             sx={{
                 py: 8,
-                backgroundColor: 'background.default',
+                backgroundColor: 'transparent',
             }}
         >
             <Container maxWidth="lg">
@@ -60,12 +60,15 @@ const Timeline = () => {
                             textAlign: 'center',
                             mb: 6,
                             color: 'text.primary',
+                            zIndex: 10,
+                            position: 'relative',
+                            userSelect: 'text',
                         }}
                     >
                         Eğitim & Deneyim
                     </Typography>
 
-                    <Box sx={{position: 'relative'}}>
+                    <Box>
                         {/* Timeline çizgisi */}
                         <Box
                             sx={{
@@ -94,7 +97,6 @@ const Timeline = () => {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         mb: 4,
-                                        position: 'relative',
                                         '@media (max-width: 900px)': {
                                             justifyContent: 'flex-start',
                                             pl: 6,
