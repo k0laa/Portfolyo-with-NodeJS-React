@@ -161,6 +161,9 @@ const Skills = () => {
                                             borderBottom: '2px solid',
                                             borderColor: 'primary.main',
                                             pb: 1,
+                                            zIndex: 2,
+                                            position: 'relative',
+                                            userSelect: 'text',
                                         }}
                                     >
                                         {category.category}
@@ -193,6 +196,9 @@ const Skills = () => {
                                                                 color: 'text.primary',
                                                                 textAlign: 'center',
                                                                 fontSize: '0.8rem',
+                                                                zIndex: 2,
+                                                                position: 'relative',
+                                                                userSelect: 'text',
                                                             }}
                                                         >
                                                             {skill.name}
