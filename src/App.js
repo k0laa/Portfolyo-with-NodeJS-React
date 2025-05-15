@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ThemeProvider, createTheme} from '@mui/material';
 import {BrowserRouter as Router} from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 import Head from "./components/Head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
+import Contact from "./components/Contact";
 
 const theme = createTheme({
     palette: {
@@ -37,10 +39,16 @@ const theme = createTheme({
 });
 
 function App() {
+    useEffect(() => {
+        emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+    }, []);
+
+
     return (
         <ThemeProvider theme={theme}>
             <Router>
                 <div className="App">
+
                     <Navbar/>
                     <Head/>
                     <About/>
@@ -50,7 +58,7 @@ function App() {
                     {/* <Projects /> */}
                     {/* <Blog /> */}
                     {/* <Testimonials /> */}
-                    {/* <Contact /> */}
+                    <Contact/>
                     <Footer/>
                 </div>
             </Router>
