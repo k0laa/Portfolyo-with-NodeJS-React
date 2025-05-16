@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import {Box, Typography, Container, Button} from '@mui/material';
 import {motion} from 'framer-motion';
 import ParticlesBackground from './Particles';
