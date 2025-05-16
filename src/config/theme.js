@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import {createTheme} from '@mui/material';
 
 export const getTheme = (isDarkMode) => {
     return createTheme({
@@ -100,48 +100,10 @@ export const getTheme = (isDarkMode) => {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             h1: {
                 fontWeight: 700,
-                fontSize: {
-                    xs: '2.5rem',
-                    sm: '3rem',
-                    md: '4rem',
-                },
             },
             h2: {
                 fontWeight: 600,
-                fontSize: {
-                    xs: '2rem',
-                    sm: '2.5rem',
-                    md: '3rem',
-                },
-            },
-            h3: {
-                fontSize: {
-                    xs: '1.5rem',
-                    sm: '1.75rem',
-                    md: '2rem',
-                },
-            },
-            h4: {
-                fontSize: {
-                    xs: '1.25rem',
-                    sm: '1.5rem',
-                    md: '1.75rem',
-                },
-            },
-            body1: {
-                fontSize: {
-                    xs: '0.875rem',
-                    sm: '1rem',
-                    md: '1.1rem',
-                },
-            },
-            body2: {
-                fontSize: {
-                    xs: '0.75rem',
-                    sm: '0.875rem',
-                    md: '1rem',
-                },
-            },
+            }
         },
     });
 }; 
