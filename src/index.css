@@ -24,6 +24,8 @@ body {
 
 :root {
     --primary-dark-color: #5550CC;
+    --background-color: transparent;
+    --primary-color: #6C63FF;
 }
 
 html {
@@ -47,14 +49,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--background-color, #0A192F);
+    background: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color, #6C63FF);
+    background: var(--primary-color);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-dark-color, #5550CC);
-} 
+    background: var(--primary-dark-color);
+}
