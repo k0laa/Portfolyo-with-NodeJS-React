@@ -54,17 +54,6 @@ const About = () => {
                             mb: 6,
                             color: 'text.primary',
                             position: 'relative',
-                            // '&::after': {
-                            //     content: '""',
-                            //     position: 'absolute',
-                            //     bottom: '-10px',
-                            //     left: '50%',
-                            //     transform: 'translateX(-50%)',
-                            //     width: '100px',
-                            //     height: '4px',
-                            //     background: 'linear-gradient(90deg, #6C63FF, #FF6584)',
-                            //     borderRadius: '2px',
-                            // },
                         }}
                     >
                         Hakkımda
@@ -76,7 +65,7 @@ const About = () => {
                             <motion.div
                                 initial={{opacity: 0, x: -50}}
                                 whileInView={{opacity: 1, x: 0}}
-                                transition={{duration: 0.8, delay: 0.2}}
+                                transition={{duration: 0.15, delay: 0.03}}
                                 viewport={{once: true}}
                             >
                                 <Typography
@@ -180,7 +169,7 @@ const About = () => {
                             <motion.div
                                 initial={{opacity: 0, x: 50}}
                                 whileInView={{opacity: 1, x: 0}}
-                                transition={{duration: 0.8, delay: 0.4}}
+                                transition={{duration: 0.15, delay: 0.03}}
                                 viewport={{once: true}}
                             >
                                 <Grid container spacing={2}>

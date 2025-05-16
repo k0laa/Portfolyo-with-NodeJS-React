@@ -1,7 +1,6 @@
-import React, {useCallback} from 'react';
+import React, from 'react';
 import {Box, Typography, Container, Button} from '@mui/material';
 import {motion} from 'framer-motion';
-import {loadFull} from 'tsparticles';
 import ParticlesBackground from './Particles';
 
 
@@ -20,13 +19,14 @@ const Head = () => {
                 backgroundColor: 'background.default',
             }}
         >
-            <ParticlesBackground />
+            <ParticlesBackground/>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{opacity: 0, y: 20}}
                     animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.8}}
+                    transition={{duration: 0.15, delay: 0.03}}
                     sx={{zIndex: 2}}
+                    viewport={{once: false}}
                 >
                     <Typography
                         variant="h1"
