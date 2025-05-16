@@ -36,7 +36,7 @@ const About = () => {
             id="about"
             sx={{
                 py: 8,
-                backgroundColor: 'transparent',
+                backgroundColor: 'background.default',
                 overflow: 'hidden',
             }}
         >

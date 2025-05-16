@@ -18,6 +18,7 @@ const Head = () => {
                 alignItems: 'center',
                 position: 'relative',
                 overflow: 'hidden',
+                backgroundColor: 'background.default',
             }}
         >
             <Particles

@@ -59,7 +59,7 @@ const Projects = () => {
             id="projects"
             sx={{
                 py: 8,
-                backgroundColor: 'transparet',
+                backgroundColor: 'background.default',
             }}
         >
             <Container maxWidth="lg">

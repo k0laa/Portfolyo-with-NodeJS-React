@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { Container, TextField, Button, Snackbar, Alert } from '@mui/material';
+import React, {useRef, useState} from 'react';
+import {Container, TextField, Button, Snackbar, Alert, Box} from '@mui/material';
 import emailjs from '@emailjs/browser';
-import { EMAILJS_CONFIG } from '../config/constants';
+import {EMAILJS_CONFIG} from '../config/constants';
 import SectionTitle from './common/SectionTitle';
 import AnimatedSection from './common/AnimatedSection';
 import SocialLinks from './common/SocialLinks';
@@ -21,7 +21,7 @@ const Contact = () => {
     });
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        setForm({...form, [e.target.name]: e.target.value});
     };
 
     const handleSubmit = (e) => {
@@ -67,117 +67,129 @@ const Contact = () => {
     };
 
     const handleCloseSnackbar = () => {
-        setSnackbar({ ...snackbar, open: false });
+        setSnackbar({...snackbar, open: false});
     };
 
     return (
-        <AnimatedSection id="contact">
-            <Container maxWidth="md">
-                <SectionTitle title="İletişime Geç" />
-                <SocialLinks sx={{ justifyContent: 'center', mb: 4 }} />
 
-                <form
-                    ref={formRef}
-                    onSubmit={handleSubmit}
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '24px',
-                        maxWidth: '600px',
-                        margin: '0 auto',
-                    }}
+        <Box
+            id="contact"
+            sx={{
+                py: 8,
+                backgroundColor: 'background.default',
+            }}
+        >
+            <AnimatedSection id="contact">
+                <Container maxWidth="md"
+
                 >
-                    <TextField
-                        required
-                        fullWidth
-                        label="İsim"
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        sx={{
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                    borderColor: 'rgba(108, 99, 255, 0.3)',
-                                },
-                                '&:hover fieldset': {
-                                    borderColor: 'primary.main',
-                                },
-                            },
-                        }}
-                    />
-                    <TextField
-                        required
-                        fullWidth
-                        label="E-posta"
-                        name="email"
-                        type="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        sx={{
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                    borderColor: 'rgba(108, 99, 255, 0.3)',
-                                },
-                                '&:hover fieldset': {
-                                    borderColor: 'primary.main',
-                                },
-                            },
-                        }}
-                    />
-                    <TextField
-                        required
-                        fullWidth
-                        label="Mesaj"
-                        name="message"
-                        multiline
-                        rows={4}
-                        value={form.message}
-                        onChange={handleChange}
-                        sx={{
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                    borderColor: 'rgba(108, 99, 255, 0.3)',
-                                },
-                                '&:hover fieldset': {
-                                    borderColor: 'primary.main',
-                                },
-                            },
-                        }}
-                    />
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        disabled={loading}
-                        sx={{
-                            mt: 2,
-                            py: 1.5,
-                            backgroundColor: 'primary.main',
-                            '&:hover': {
-                                backgroundColor: 'primary.dark',
-                            },
+                    <SectionTitle title="İletişime Geç"/>
+                    <SocialLinks sx={{justifyContent: 'center', mb: 4}}/>
+
+                    <form
+                        ref={formRef}
+                        onSubmit={handleSubmit}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '24px',
+                            maxWidth: '600px',
+                            margin: '0 auto',
                         }}
                     >
-                        {loading ? 'Gönderiliyor...' : 'Gönder'}
-                    </Button>
-                </form>
+                        <TextField
+                            required
+                            fullWidth
+                            label="İsim"
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    '& fieldset': {
+                                        borderColor: 'rgba(108, 99, 255, 0.3)',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: 'primary.main',
+                                    },
+                                },
+                            }}
+                        />
+                        <TextField
+                            required
+                            fullWidth
+                            label="E-posta"
+                            name="email"
+                            type="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    '& fieldset': {
+                                        borderColor: 'rgba(108, 99, 255, 0.3)',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: 'primary.main',
+                                    },
+                                },
+                            }}
+                        />
+                        <TextField
+                            required
+                            fullWidth
+                            label="Mesaj"
+                            name="message"
+                            multiline
+                            rows={4}
+                            value={form.message}
+                            onChange={handleChange}
+                            sx={{
+                                '& .MuiOutlinedInput-root': {
+                                    '& fieldset': {
+                                        borderColor: 'rgba(108, 99, 255, 0.3)',
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: 'primary.main',
+                                    },
+                                },
+                            }}
+                        />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            size="large"
+                            disabled={loading}
+                            sx={{
+                                mt: 2,
+                                py: 1.5,
+                                backgroundColor: 'primary.main',
+                                '&:hover': {
+                                    backgroundColor: 'primary.dark',
+                                },
+                            }}
+                        >
+                            {loading ? 'Gönderiliyor...' : 'Gönder'}
+                        </Button>
+                    </form>
 
-                <Snackbar
-                    open={snackbar.open}
-                    autoHideDuration={6000}
-                    onClose={handleCloseSnackbar}
-                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                >
-                    <Alert
+                    <Snackbar
+                        open={snackbar.open}
+                        autoHideDuration={6000}
                         onClose={handleCloseSnackbar}
-                        severity={snackbar.severity}
-                        sx={{ width: '100%' }}
+                        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
                     >
-                        {snackbar.message}
-                    </Alert>
-                </Snackbar>
-            </Container>
-        </AnimatedSection>
+                        <Alert
+                            onClose={handleCloseSnackbar}
+                            severity={snackbar.severity}
+                            sx={{width: '100%'}}
+                        >
+                            {snackbar.message}
+                        </Alert>
+                    </Snackbar>
+                </Container>
+            </AnimatedSection>
+
+        </Box>
     );
 };
 

@@ -44,7 +44,7 @@ const Timeline = () => {
             id="timeline"
             sx={{
                 py: 8,
-                backgroundColor: 'transparent',
+                backgroundColor: 'background.default',
             }}
         >
             <Container maxWidth="lg">

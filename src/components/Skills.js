@@ -112,7 +112,7 @@ const Skills = () => {
             id="skills"
             sx={{
                 py: 8,
-                backgroundColor: 'transparent',
+                backgroundColor: 'background.default',
                 zIndex: 2,
             }}
         >
