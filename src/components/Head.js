@@ -88,7 +88,7 @@ const Head = () => {
 
                     },
                     interactivity: {
-                        detect_on: 'canvas',
+                        detect_on: 'window',
                         events: {
                             onhover: {
                                 enable: true,
@@ -120,7 +120,7 @@ const Head = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    zIndex: -1, // Diğer bileşenlerin altında kalmasını sağlar
+                    zIndex: -1,
                 }}
             />
             <Container maxWidth="lg">
