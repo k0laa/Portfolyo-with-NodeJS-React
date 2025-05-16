@@ -29,30 +29,14 @@ function App() {
     return (
         <ThemeProvider theme={getTheme(isDarkMode)}>
             <Router>
-                <Box 
-                    className="App"
-                    sx={{
-                        width: '100%',
-                        overflowX: 'hidden',
-                        position: 'relative',
-                    }}
-                >
+                <Box className="App" sx={{width: '100%', overflowX: 'hidden', position: 'relative',}}>
                     <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
-                    <Box
-                        component="main"
-                        sx={{
-                            width: '100%',
-                            overflowX: 'hidden',
-                            position: 'relative',
-                        }}
-                    >
-                        <Head/>
-                        <About/>
-                        <Skills/>
-                        <Timeline/>
-                        <Projects/>
-                        <Contact/>
-                    </Box>
+                    <Head/>
+                    <About/>
+                    <Skills/>
+                    <Timeline/>
+                    <Projects/>
+                    <Contact/>
                     <Footer/>
                 </Box>
             </Router>

@@ -16,8 +16,8 @@ export const getTheme = (isDarkMode) => {
                 paper: isDarkMode ? '#112240' : '#F8F9FA',
             },
             text: {
-                primary: isDarkMode ? '#CCD6F6' : '#2D3436',
-                secondary: isDarkMode ? '#8892B0' : '#636E72',
+                primary: isDarkMode ? '#eef0f8' : '#2D3436',
+                secondary: isDarkMode ? '#adb2c1' : '#636E72',
             },
         },
         breakpoints: {
