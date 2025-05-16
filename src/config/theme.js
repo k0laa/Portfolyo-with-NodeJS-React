@@ -13,7 +13,7 @@ export const getTheme = (isDarkMode) => {
             },
             background: {
                 default: isDarkMode ? 'rgb(18,18,18)' : 'rgb(245,245,245)',
-                paper: isDarkMode ? '#11151b' : '#F8F9FA',
+                paper: isDarkMode ? 'rgb(28, 28, 28)' : 'rgb(235, 235, 235)',
             },
             text: {
                 primary: isDarkMode ? '#eef0f8' : '#2D3436',
