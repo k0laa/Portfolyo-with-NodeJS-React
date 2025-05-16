@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ThemeProvider} from '@mui/material';
 import {BrowserRouter as Router} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import theme from './config/theme';
 import {EMAILJS_CONFIG} from './config/constants';
+import {getTheme} from './config/theme';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -16,15 +16,21 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 
 function App() {
+    const [isDarkMode, setIsDarkMode] = useState(true);
+
     useEffect(() => {
         emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
     }, []);
 
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={getTheme(isDarkMode)}>
             <Router>
                 <div className="App">
-                    <Navbar/>
+                    <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
                     <Head/>
                     <About/>
                     <Skills/>

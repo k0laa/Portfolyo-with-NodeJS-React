@@ -13,7 +13,7 @@ import {
     useTheme,
     useMediaQuery,
 } from '@mui/material';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaSun, FaMoon } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const navItems = [
@@ -23,7 +23,7 @@ const navItems = [
     { name: 'İletişim', href: '#contact' },
 ];
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme, isDarkMode }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -51,9 +51,9 @@ const Navbar = () => {
         <AppBar
             position="fixed"
             sx={{
-                backgroundColor: 'rgba(10, 25, 47, 0.65)',
                 backdropFilter: 'blur(10px)',
                 boxShadow: 'none',
+                transition: 'background-color 0.3s ease-in-out',
             }}
         >
             <Toolbar>
@@ -73,6 +73,7 @@ const Navbar = () => {
                         }}
                     />
                 </Typography>
+                
                 {isMobile ? (
                     <IconButton
                         color="inherit"
@@ -84,7 +85,7 @@ const Navbar = () => {
                         <FaBars size={24} />
                     </IconButton>
                 ) : (
-                    <Box sx={{ display: 'flex', gap: 2 }}>
+                    <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
                         {navItems.map((item) => (
                             <motion.div
                                 key={item.name}
@@ -104,6 +105,22 @@ const Navbar = () => {
                                 </Button>
                             </motion.div>
                         ))}
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <IconButton
+                                onClick={toggleTheme}
+                                sx={{
+                                    color: 'text.primary',
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                    },
+                                }}
+                            >
+                                {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+                            </IconButton>
+                        </motion.div>
                     </Box>
                 )}
             </Toolbar>
@@ -119,6 +136,7 @@ const Navbar = () => {
                     '& .MuiDrawer-paper': {
                         backgroundColor: 'background.paper',
                         width: 240,
+                        transition: 'background-color 0.3s ease-in-out',
                     },
                 }}
             >
