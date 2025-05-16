@@ -12,8 +12,8 @@ export const getTheme = (isDarkMode) => {
                 main: '#FF6584',
             },
             background: {
-                default: isDarkMode ? '#0A192F' : '#FFFFFF',
-                paper: isDarkMode ? '#112240' : '#F8F9FA',
+                default: isDarkMode ? 'rgb(18,18,18)' : 'rgb(245,245,245)',
+                paper: isDarkMode ? '#11151b' : '#F8F9FA',
             },
             text: {
                 primary: isDarkMode ? '#eef0f8' : '#2D3436',
@@ -44,30 +44,30 @@ export const getTheme = (isDarkMode) => {
             MuiCssBaseline: {
                 styleOverrides: {
                     body: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                         overflowX: 'hidden',
                         width: '100%',
                     },
                     '*': {
-                        transition: 'all 1.8s ease-in-out !important',
+                        transition: 'all 0.65s ease-in-out !important',
                     },
                 },
             },
             MuiAppBar: {
                 styleOverrides: {
                     root: {
-                        backgroundColor: isDarkMode ? 'rgba(10, 25, 47, 0.7)' : 'rgba(255, 255, 255, 0.7)',
+                        backgroundColor: isDarkMode ? 'rgba(18, 18, 18, 0.6)' : 'rgba(245, 245, 245, 0.6)',
                         width: '100%',
                         backdropFilter: 'blur(10px)',
                         backgroundImage: 'none',
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiPaper: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
@@ -76,7 +76,7 @@ export const getTheme = (isDarkMode) => {
                     paper: {
                         width: '100%',
                         maxWidth: '100%',
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
@@ -84,70 +84,70 @@ export const getTheme = (isDarkMode) => {
                 styleOverrides: {
                     root: {
                         width: '100%',
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiTypography: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiIconButton: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiButton: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiCard: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiChip: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiContainer: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiToolbar: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiListItem: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
             MuiListItemText: {
                 styleOverrides: {
                     root: {
-                        transition: 'all 1.8s ease-in-out',
+                        transition: 'all 0.65s ease-in-out',
                     },
                 },
             },
