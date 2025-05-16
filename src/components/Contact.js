@@ -29,8 +29,9 @@ const Contact = () => {
         setLoading(true);
 
         const templateParams = {
-            from_name: form.name,
-            from_email: form.email,
+            name: form.name,
+            email: form.email,
+            time: new Date().toLocaleString(),
             message: form.message,
         };
 
