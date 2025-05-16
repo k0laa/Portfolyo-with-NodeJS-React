@@ -33,9 +33,9 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
     };
 
     const drawer = (
-        <Box 
-            onClick={handleDrawerToggle} 
-            sx={{ 
+        <Box
+            onClick={handleDrawerToggle}
+            sx={{
                 textAlign: 'center',
                 height: '100%',
                 backgroundColor: 'background.default',
@@ -43,9 +43,9 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
         >
             <List sx={{ pt: 8 }}>
                 {navItems.map((item) => (
-                    <ListItem 
-                        key={item.name} 
-                        component="a" 
+                    <ListItem
+                        key={item.name}
+                        component="a"
                         href={item.href}
                         sx={{
                             justifyContent: 'center',
@@ -56,8 +56,8 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
                     >
                         <ListItemText
                             primary={item.name}
-                            sx={{ 
-                                color: 'text.primary', 
+                            sx={{
+                                color: 'text.primary',
                                 textAlign: 'center',
                                 '& .MuiTypography-root': {
                                     fontSize: {
@@ -94,11 +94,10 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
             sx={{
                 backdropFilter: 'blur(10px)',
                 boxShadow: 'none',
-                transition: 'background-color 0.3s ease-in-out',
                 width: '100%',
             }}
         >
-            <Toolbar sx={{ 
+            <Toolbar sx={{
                 minHeight: { xs: 56, sm: 64 },
                 px: { xs: 2, sm: 3, md: 4 },
                 width: '100%',
@@ -106,9 +105,9 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
                 <Typography
                     variant="h6"
                     component="div"
-                    sx={{ 
-                        flexGrow: 1, 
-                        color: 'primary.main', 
+                    sx={{
+                        flexGrow: 1,
+                        color: 'primary.main',
                         fontWeight: 700,
                     }}
                 >
@@ -123,14 +122,14 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
                         }}
                     />
                 </Typography>
-                
+
                 {isMobile ? (
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ 
+                        sx={{
                             color: 'text.primary',
                             '&:hover': {
                                 color: 'primary.main',
@@ -193,7 +192,6 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
                         backgroundColor: 'background.default',
                         width: '100%',
                         maxWidth: '100%',
-                        transition: 'background-color 0.3s ease-in-out',
                     },
                 }}
             >

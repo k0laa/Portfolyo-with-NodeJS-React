@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Paper } from '@mui/material';
+import {  Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const Card = ({ children, sx = {}, animation = true }) => {
@@ -11,7 +11,6 @@ const Card = ({ children, sx = {}, animation = true }) => {
                 height: '100%',
                 backgroundColor: 'background.paper',
                 borderRadius: 2,
-                transition: 'transform 0.3s ease-in-out',
                 '&:hover': {
                     transform: 'translateY(-5px)',
                 },

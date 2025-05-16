@@ -93,7 +93,6 @@ const Projects = () => {
                                             display: 'flex',
                                             flexDirection: 'column',
                                             backgroundColor: 'background.paper',
-                                            transition: 'transform 0.2s',
                                         }}
                                     >
                                         <CardMedia

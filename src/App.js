@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ThemeProvider, Box} from '@mui/material';
+import {ThemeProvider, Box,CssBaseline} from '@mui/material';
 import {BrowserRouter as Router} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import {EMAILJS_CONFIG} from './config/constants';
@@ -26,8 +26,8 @@ function App() {
         setIsDarkMode(!isDarkMode);
     };
 
-    return (
-        <ThemeProvider theme={getTheme(isDarkMode)}>
+    return (<ThemeProvider theme={getTheme(isDarkMode)}>
+            <CssBaseline/>
             <Router>
                 <Box className="App" sx={{width: '100%', overflowX: 'hidden', position: 'relative',}}>
                     <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
@@ -40,8 +40,8 @@ function App() {
                     <Footer/>
                 </Box>
             </Router>
-        </ThemeProvider>
-    );
+            <CssBaseline/>
+        </ThemeProvider>);
 }
 
 export default App;
