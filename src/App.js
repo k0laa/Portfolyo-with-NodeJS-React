@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ThemeProvider} from '@mui/material';
+import {ThemeProvider, Box} from '@mui/material';
 import {BrowserRouter as Router} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import {EMAILJS_CONFIG} from './config/constants';
@@ -29,16 +29,32 @@ function App() {
     return (
         <ThemeProvider theme={getTheme(isDarkMode)}>
             <Router>
-                <div className="App">
+                <Box 
+                    className="App"
+                    sx={{
+                        width: '100%',
+                        overflowX: 'hidden',
+                        position: 'relative',
+                    }}
+                >
                     <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
-                    <Head/>
-                    <About/>
-                    <Skills/>
-                    <Timeline/>
-                    <Projects/>
-                    <Contact/>
+                    <Box
+                        component="main"
+                        sx={{
+                            width: '100%',
+                            overflowX: 'hidden',
+                            position: 'relative',
+                        }}
+                    >
+                        <Head/>
+                        <About/>
+                        <Skills/>
+                        <Timeline/>
+                        <Projects/>
+                        <Contact/>
+                    </Box>
                     <Footer/>
-                </div>
+                </Box>
             </Router>
         </ThemeProvider>
     );

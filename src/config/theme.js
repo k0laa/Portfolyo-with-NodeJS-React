@@ -20,6 +20,15 @@ export const getTheme = (isDarkMode) => {
                 secondary: isDarkMode ? '#8892B0' : '#636E72',
             },
         },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                lg: 1280,
+                xl: 1920,
+            },
+        },
         transitions: {
             duration: {
                 shortest: 150,
@@ -36,6 +45,8 @@ export const getTheme = (isDarkMode) => {
                 styleOverrides: {
                     body: {
                         transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
+                        overflowX: 'hidden',
+                        width: '100%',
                     },
                 },
             },
@@ -43,6 +54,44 @@ export const getTheme = (isDarkMode) => {
                 styleOverrides: {
                     root: {
                         backgroundColor: isDarkMode ? 'rgba(10, 25, 47, 0.65)' : 'rgba(255, 255, 255, 0.65)',
+                        width: '100%',
+                    },
+                },
+            },
+            MuiContainer: {
+                styleOverrides: {
+                    root: {
+                        paddingLeft: {
+                            xs: 2,
+                            sm: 3,
+                            md: 4,
+                        },
+                        paddingRight: {
+                            xs: 2,
+                            sm: 3,
+                            md: 4,
+                        },
+                        maxWidth: {
+                            xs: '100%',
+                            sm: '600px',
+                            md: '960px',
+                            lg: '1280px',
+                        },
+                    },
+                },
+            },
+            MuiDrawer: {
+                styleOverrides: {
+                    paper: {
+                        width: '100%',
+                        maxWidth: '100%',
+                    },
+                },
+            },
+            MuiBox: {
+                styleOverrides: {
+                    root: {
+                        width: '100%',
                     },
                 },
             },
@@ -51,9 +100,47 @@ export const getTheme = (isDarkMode) => {
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
             h1: {
                 fontWeight: 700,
+                fontSize: {
+                    xs: '2.5rem',
+                    sm: '3rem',
+                    md: '4rem',
+                },
             },
             h2: {
                 fontWeight: 600,
+                fontSize: {
+                    xs: '2rem',
+                    sm: '2.5rem',
+                    md: '3rem',
+                },
+            },
+            h3: {
+                fontSize: {
+                    xs: '1.5rem',
+                    sm: '1.75rem',
+                    md: '2rem',
+                },
+            },
+            h4: {
+                fontSize: {
+                    xs: '1.25rem',
+                    sm: '1.5rem',
+                    md: '1.75rem',
+                },
+            },
+            body1: {
+                fontSize: {
+                    xs: '0.875rem',
+                    sm: '1rem',
+                    md: '1.1rem',
+                },
+            },
+            body2: {
+                fontSize: {
+                    xs: '0.75rem',
+                    sm: '0.875rem',
+                    md: '1rem',
+                },
             },
         },
     });

@@ -55,32 +55,29 @@ const Timeline = () => {
                     viewport={{once: true}}
                 >
                     <Typography
-                        variant="h2"
+                        variant="h1"
                         sx={{
                             textAlign: 'center',
                             mb: 6,
                             color: 'text.primary',
                             zIndex: 10,
-                            position: 'relative',
                             userSelect: 'text',
                         }}
                     >
                         Eğitim & Deneyim
                     </Typography>
 
-                    <Box>
+                    <Box >
                         {/* Timeline çizgisi */}
                         <Box
                             sx={{
                                 position: 'absolute',
-                                left: '50%',
-                                transform: 'translateX(-50%)',
+                                left: {xs: 20, md: '50%'},
+                                transform: {xs: 'none', md: 'translateX(-50%)'},
                                 width: 2,
-                                height: '100%',
+                                height: 'calc(100% - 40px)',
                                 backgroundColor: 'primary.main',
-                                '@media (max-width: 900px)': {
-                                    left: 20,
-                                },
+                                top: 20,
                             }}
                         />
 
@@ -111,7 +108,9 @@ const Timeline = () => {
                                             ml: index % 2 === 0 ? 0 : 'auto',
                                             mr: index % 2 === 0 ? 'auto' : 0,
                                             backgroundColor: 'background.paper',
+                                            zIndex: 2,
                                             position: 'relative',
+                                            userSelect: 'text',
                                         }}
                                     >
                                         <Box
@@ -140,25 +139,47 @@ const Timeline = () => {
 
                                         <Typography
                                             variant="h6"
-                                            sx={{color: 'text.primary', mb: 1}}
+                                            sx={{
+                                                color: 'text.primary', mb: 1,
+                                                zIndex: 2,
+                                                position: 'relative',
+                                                userSelect: 'text',}}
                                         >
                                             {item.title}
                                         </Typography>
                                         <Typography
                                             variant="subtitle1"
-                                            sx={{color: 'primary.main', mb: 1}}
+                                            sx={{
+                                                color: 'primary.main', mb: 1,
+
+                                                zIndex: 2,
+                                                position: 'relative',
+                                                userSelect: 'text',
+                                            }}
                                         >
                                             {item.institution}
                                         </Typography>
                                         <Typography
                                             variant="body2"
-                                            sx={{color: 'text.secondary', mb: 1}}
+                                            sx={{
+                                                color: 'text.secondary', mb: 1,
+
+                                                zIndex: 2,
+                                                position: 'relative',
+                                                userSelect: 'text',
+                                            }}
                                         >
                                             {item.date}
                                         </Typography>
                                         <Typography
                                             variant="body2"
-                                            sx={{color: 'text.secondary'}}
+                                            sx={{
+                                                color: 'text.secondary',
+
+                                                zIndex: 2,
+                                                position: 'relative',
+                                                userSelect: 'text',
+                                            }}
                                         >
                                             {item.description}
                                         </Typography>
