@@ -61,23 +61,28 @@ const Timeline = () => {
                             mb: 6,
                             color: 'text.primary',
                             zIndex: 10,
+                            position: 'relative',
                             userSelect: 'text',
+                            pointerEvents: 'auto'
                         }}
                     >
                         Eğitim & Deneyim
                     </Typography>
 
-                    <Box >
+                    <Box sx={{position: 'relative'}}>
                         {/* Timeline çizgisi */}
                         <Box
                             sx={{
                                 position: 'absolute',
-                                left: {xs: 20, md: '50%'},
-                                transform: {xs: 'none', md: 'translateX(-50%)'},
+                                left: '50%',
+                                transform: 'translateX(-50%)',
                                 width: 2,
-                                height: 'calc(100% - 40px)',
+                                height: '100%',
                                 backgroundColor: 'primary.main',
-                                top: 20,
+                                '@media (max-width: 900px)': {
+                                    left: 20,
+                                },
+                                pointerEvents: 'none'
                             }}
                         />
 
@@ -91,13 +96,14 @@ const Timeline = () => {
                             >
                                 <Box
                                     sx={{
-                                        display: 'flex',
                                         justifyContent: 'center',
                                         mb: 4,
                                         '@media (max-width: 900px)': {
                                             justifyContent: 'flex-start',
                                             pl: 6,
                                         },
+                                        position: 'relative',
+                                        zIndex: 2
                                     }}
                                 >
                                     <Paper
@@ -111,6 +117,7 @@ const Timeline = () => {
                                             zIndex: 2,
                                             position: 'relative',
                                             userSelect: 'text',
+                                            pointerEvents: 'auto'
                                         }}
                                     >
                                         <Box
