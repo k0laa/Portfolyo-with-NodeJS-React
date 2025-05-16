@@ -62,7 +62,16 @@ const Navbar = () => {
                     component="div"
                     sx={{ flexGrow: 1, color: 'primary.main', fontWeight: 700 }}
                 >
-                    BY
+                    <Box
+                        component="img"
+                        src="/logo.png"
+                        alt="Logo"
+                        sx={{
+                            height: 40,
+                            flexGrow: 1,
+                            display: 'relative',
+                        }}
+                    />
                 </Typography>
                 {isMobile ? (
                     <IconButton
