@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {ThemeProvider, Box,CssBaseline} from '@mui/material';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {ThemeProvider, Box, CssBaseline} from '@mui/material';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import {EMAILJS_CONFIG} from './config/constants';
 import {getTheme} from './config/theme';
@@ -14,6 +14,7 @@ import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
+import AllProjects from './pages/AllProjects';
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -26,22 +27,30 @@ function App() {
         setIsDarkMode(!isDarkMode);
     };
 
-    return (<ThemeProvider theme={getTheme(isDarkMode)}>
+    return (
+        <ThemeProvider theme={getTheme(isDarkMode)}>
             <CssBaseline/>
             <Router>
-                <Box className="App" sx={{width: '100%', overflowX: 'hidden', position: 'relative',}}>
+                <Box className="App" sx={{width: '100%', overflowX: 'hidden', position: 'relative'}}>
                     <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
-                    <Head/>
-                    <About/>
-                    <Skills/>
-                    <Timeline/>
-                    <Projects/>
-                    <Contact/>
+                    <Routes>
+                        <Route path="/" element={
+                            <>
+                                <Head/>
+                                <About/>
+                                <Skills/>
+                                <Timeline/>
+                                <Projects/>
+                                <Contact/>
+                            </>
+                        }/>
+                        <Route path="/all-projects" element={<AllProjects />} />
+                    </Routes>
                     <Footer/>
                 </Box>
             </Router>
-            <CssBaseline/>
-        </ThemeProvider>);
+        </ThemeProvider>
+    );
 }
 
 export default App;

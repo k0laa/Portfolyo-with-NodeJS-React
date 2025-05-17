@@ -19,10 +19,10 @@ import EasterEggs from './EasterEggs';
 import GradeSimulator from './GradeSimulator';
 
 const navItems = [
-    {name: 'Ana Sayfa', href: '#home'},
-    {name: 'Hakkımda', href: '#about'},
-    {name: 'Projeler', href: '#projects'},
-    {name: 'İletişim', href: '#contact'},
+    {name: 'Ana Sayfa', href: '/#home'},
+    {name: 'Hakkımda', href: '/#about'},
+    {name: 'Projeler', href: '/#projects'},
+    {name: 'İletişim', href: '/#contact'},
 ];
 
 const Navbar = ({toggleTheme, isDarkMode}) => {
@@ -157,7 +157,7 @@ const Navbar = ({toggleTheme, isDarkMode}) => {
                     >
                         <Box
                             component="a"
-                            href="#home"
+                            href="/#home"
                             sx={{
                                 display: 'block',
                                 cursor: 'pointer',
