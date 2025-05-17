@@ -16,7 +16,9 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
             emoji: course.emoji,
             grade: course.grade,
             gradeEmoji: emoji,
-            color
+            color,
+            midterm: course.midterm,
+            final: course.final
         });
     };
 
@@ -32,14 +34,6 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
             transformOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
-            }}
-            PaperProps={{
-                sx: {
-                    borderRadius: 3,
-                    backgroundColor: 'background.paper',
-                    width: '320px',
-                    mt: 1,
-                }
             }}
         >
             <Box sx={{ p: 2 }}>
@@ -111,6 +105,26 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                                 {result.emoji} {result.course}
                             </Typography>
                             <Divider sx={{ my: 0.5 }} />
+                            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 0.5 }}>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        color: 'text.secondary',
+                                        fontSize: '0.8rem',
+                                    }}
+                                >
+                                    Vize: {result.midterm}
+                                </Typography>
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        color: 'text.secondary',
+                                        fontSize: '0.8rem',
+                                    }}
+                                >
+                                    Final: {result.final}
+                                </Typography>
+                            </Box>
                             <Typography
                                 variant="subtitle1"
                                 sx={{
