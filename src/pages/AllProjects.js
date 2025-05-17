@@ -1,59 +1,131 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Container, Typography, Grid, CircularProgress } from '@mui/material';
-import { motion } from 'framer-motion';
+import React from 'react';
+import {Box, Container, Typography, Grid} from '@mui/material';
+import {motion} from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
-import Particles from "../components/Particles";
+import Particles from '../components/Particles';
+import {useEffect} from 'react';
+
+
+const projects = [
+    {
+        title: 'Yemek Tarifi Asistanı',
+        description: 'Kullanıcıların evdeki malzemelerini girerek hızlıca tarif önerileri almasını sağlayan bir uygulama.',
+        images: [
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/main.png?raw=true',
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/find_recipe.png?raw=true',
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/recipe_details.png?raw=true',
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/random_recipe.png?raw=true',
+        ],
+        technologies: ['Python', 'Flask', 'spoonacular API', 'HTML', 'CSS', 'JavaScript'],
+        github: 'https://github.com/k0laa/Yemek_Tarif_Asistani',
+        demo: 'https://yemek-tarif-asistani.onrender.com/',
+    },
+    {
+        title: 'Fake Commit Design',
+        description: 'GitHub profilinizin katkı grafiğini dilediğiniz şekil ve resimlerle süsleyebileceğiniz bir araç.',
+        images: [
+            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/icon_3.png?raw=true',
+            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/example_paint.png?raw=true',
+            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/empty_grid.png?raw=true',
+        ],
+        technologies: ['Python', 'GitHub API'],
+        github: 'https://github.com/k0laa/Fake_Commit_Design',
+        demo: undefined,
+    },
+    {
+        title: 'Veterinerlik Uygulaması',
+        description: 'PyQt5 ile geliştirilmiş modern bir veterinerlik uygulaması.',
+        images: [
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/icons/app_icon.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/appointment_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/login_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/my_appointments_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/my_pets_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/new_appointment_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/new_pet_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/profile_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/records_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/signup_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/waiting_patients_tab.png?raw=true',
+        ],
+        technologies: ['Python', 'PyQt5', 'SQLite'],
+        github: 'https://github.com/k0laa/Veterinerlik_Uygulamasi',
+        demo: undefined,
+    },
+    {
+        title: 'Valorant Instalock',
+        description: 'Valorant oynarken senden önce istediğin ajanı sormadan kitleyenlere son!',
+        images: [
+            'https://github.com/k0laa/Valorant_Instalock/blob/main/images/icon.png?raw=true',
+            'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/main.png?raw=true',
+            'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/example.png?raw=true',
+        ],
+        technologies: ['Python', 'PyQt5', 'Thinker'],
+        github: 'https://github.com/k0laa/Valorant_Instalock',
+        demo: undefined,
+    },
+    {
+        title: 'Yılan Oyunu',
+        description: 'Pygame kütüphanesi kullanılarak yaptığım ilk projem. Basit bir yılan oyunudur.',
+        images: [
+            'https://github.com/k0laa/Yilan_Oyunu_Pygame/blob/main/resources/in_game.png?raw=true',
+            'https://github.com/k0laa/Yilan_Oyunu_Pygame/blob/main/resources/in_game_2.png?raw=true',
+            'https://github.com/k0laa/Yilan_Oyunu_Pygame/blob/main/resources/start_game.png?raw=true',
+            'https://github.com/k0laa/Yilan_Oyunu_Pygame/blob/main/resources/restart_game.png?raw=true',
+        ],
+        technologies: ['Python', 'Pygame'],
+        github: 'https://github.com/k0laa/Yilan_Oyunu_Pygame',
+        demo: undefined,
+    },
+    {
+        title: 'Labirent Oyunu',
+        description: 'C# dili kullanılarak Windows Forms platformunda geliştirilmiş eğlenceli bir Labirent Oyunudur.',
+        images: [
+            'https://github.com/k0laa/Windows_Forms_Labirent_Oyunu/blob/master/resources/game.png?raw=true',
+        ],
+        technologies: ['C#', 'Windows Forms'],
+        github: 'https://github.com/k0laa/Windows_Forms_Labirent_Oyunu',
+        demo: undefined,
+    },
+    {
+        title: 'Pinpon Oyunu',
+        description: 'Windows Forms kullanılarak C# ile yazılmış basit bir pinpon oyunudur.',
+        images: [
+            'https://github.com/k0laa/Windows_Forms_PinPon_Oyunu/blob/master/resources/start_page.png?raw=true',
+            'https://github.com/k0laa/Windows_Forms_PinPon_Oyunu/blob/master/resources/in_game.png?raw=true',
+            'https://github.com/k0laa/Windows_Forms_PinPon_Oyunu/blob/master/resources/game_over.png?raw=true',
+        ],
+        technologies: ['C#', 'Windows Forms'],
+        github: 'https://github.com/k0laa/Windows_Forms_PinPon_Oyunu',
+        demo: undefined,
+    },
+    {
+        title: 'Not Uygulaması',
+        description: 'Electron kullanarak yaptığım ilk projem. Basit bir not uygulmasıdır.',
+        images: [],
+        technologies: ['Electron', 'JavaScript', 'HTML'],
+        github: 'https://github.com/k0laa/Electron-NotUygulamasi',
+        demo: undefined,
+    },
+    {
+        title: 'Soru Bankası',
+        description: 'Soru bankası uygulaması',
+        images: [],
+        technologies: ['Python', 'PyQt5', 'SQLite'],
+        github: 'https://github.com/k0laa/Soru_Bankasi',
+        demo: undefined,
+    },
+];
 
 const AllProjects = () => {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const response = await fetch('https://api.github.com/users/k0laa/repos');
-                const data = await response.json();
-                
-                // GitHub API'den gelen projeleri düzenle
-                const formattedProjects = data.map(repo => ({
-                    title: repo.name,
-                    description: repo.description || 'Açıklama bulunmuyor.',
-                    images: [`https://raw.githubusercontent.com/k0laa/${repo.name}/main/resources/main.png`],
-                    technologies: repo.topics || [],
-                    github: repo.html_url,
-                    demo: repo.homepage || undefined
-                }));
-
-                setProjects(formattedProjects);
-                setLoading(false);
-            } catch (err) {
-                setError('Projeler yüklenirken bir hata oluştu.');
-                setLoading(false);
-            }
-        };
-
-        fetchProjects();
+        window.scrollTo(0, 0);
     }, []);
-
-    if (loading) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
-                <CircularProgress />
-            </Box>
-        );
-    }
-
-    if (error) {
-        return (
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
-                <Typography color="error">{error}</Typography>
-            </Box>
-        );
-    }
 
     return (
         <Box
+            id="home"
             sx={{
                 py: 8,
                 backgroundColor: 'background.default',
@@ -61,11 +133,11 @@ const AllProjects = () => {
             }}
         >
             <Container maxWidth="lg">
-                <Particles />
+                <Particles/>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    initial={{opacity: 0, y: 20}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{duration: 0.5}}
                 >
                     <Typography
                         variant="h2"
@@ -81,7 +153,7 @@ const AllProjects = () => {
                     <Grid container spacing={4}>
                         {projects.map((project, index) => (
                             <Grid item xs={12} sm={6} md={4} key={index}>
-                                <ProjectCard project={project} />
+                                <ProjectCard project={project}/>
                             </Grid>
                         ))}
                     </Grid>
