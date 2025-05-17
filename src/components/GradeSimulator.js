@@ -35,8 +35,22 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                 vertical: 'top',
                 horizontal: 'right',
             }}
+            PaperProps={{
+                sx: {
+                    width: '320px',
+                    height: '260px',
+                    borderRadius: 3,
+                    backgroundColor: 'background.paper',
+                    mt: 1,
+                }
+            }}
         >
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ 
+                p: 2,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+            }}>
                 <Box sx={{ 
                     display: 'flex', 
                     justifyContent: 'space-between', 
