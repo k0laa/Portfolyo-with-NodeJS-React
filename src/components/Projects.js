@@ -1,59 +1,73 @@
 import React from 'react';
-import {
-    Box,
-    Container,
-    Typography,
-    Grid,
-    Card,
-    CardContent,
-    CardMedia,
-    CardActions,
-    Button,
-    Chip,
-} from '@mui/material';
-import {motion} from 'framer-motion';
-import {FaGithub, FaExternalLinkAlt} from 'react-icons/fa';
+import { Box, Container, Typography, Grid, Button } from '@mui/material';
+import { motion } from 'framer-motion';
+import ProjectCard from './ProjectCard';
+import { useNavigate } from 'react-router-dom';
 
 const projects = [
     {
         title: 'Yemek Tarifi Asistanı',
-        description:
-            'Kullanıcıların evdeki malzemelerini girerek hızlıca tarif önerileri almasını sağlayan bir uygulama.',
-        image: 'https://via.placeholder.com/400x300',
+        description: 'Kullanıcıların evdeki malzemelerini girerek hızlıca tarif önerileri almasını sağlayan bir uygulama.',
+        images: [
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/main.png?raw=true',
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/find_recipe.png?raw=true',
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/recipe_details.png?raw=true',
+            'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/random_recipe.png?raw=true',
+
+        ],
         technologies: ['Python', 'AI', 'Web Scraping'],
         github: 'https://github.com/k0laa/Yemek_Tarif_Asistani',
-        demo: '#',
+        demo: 'https://yemek-tarif-asistani.onrender.com/',
     },
     {
         title: 'Fake Commit Design',
-        description:
-            'GitHub profilinizin katkı grafiğini dilediğiniz şekil ve resimlerle süsleyebileceğiniz bir araç.',
-        image: 'https://via.placeholder.com/400x300',
+        description: 'GitHub profilinizin katkı grafiğini dilediğiniz şekil ve resimlerle süsleyebileceğiniz bir araç.',
+        images: [
+            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/icon_3.png?raw=true',
+            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/example_paint.png?raw=true',
+            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/empty_grid.png?raw=true',
+        ],
         technologies: ['Python', 'GitHub API'],
         github: 'https://github.com/k0laa/Fake_Commit_Design',
-        demo: '#',
+        demo: undefined,
     },
     {
         title: 'Veterinerlik Uygulaması',
-        description:
-            'PyQt5 ile geliştirilmiş modern bir veterinerlik uygulaması.',
-        image: 'https://via.placeholder.com/400x300',
+        description: 'PyQt5 ile geliştirilmiş modern bir veterinerlik uygulaması.',
+        images: [
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/icons/app_icon.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/appointment_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/login_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/my_appointments_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/my_pets_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/new_appointment_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/new_pet_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/profile_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/records_tab.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/signup_window.png?raw=true',
+            'https://github.com/k0laa/Veterinerlik_Uygulamasi/blob/main/resources/app_photos/waiting_patients_tab.png?raw=true',
+        ],
         technologies: ['Python', 'PyQt5', 'SQLite'],
         github: 'https://github.com/k0laa/Veterinerlik_Uygulamasi',
-        demo: '#',
+        demo: undefined,
     },
     {
         title: 'Valorant Instalock',
-        description:
-            'Valorant oynarken senden önce istediğin ajanı sormadan kitleyenlere son!',
-        image: 'https://via.placeholder.com/400x300',
+        description: 'Valorant oynarken senden önce istediğin ajanı sormadan kitleyenlere son!',
+        images: [
+            'https://github.com/k0laa/Valorant_Instalock/blob/main/images/icon.png?raw=true',
+            'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/main.png?raw=true',
+            'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/example.png?raw=true',
+        ],
         technologies: ['Python', 'Automation'],
         github: 'https://github.com/k0laa/Valorant_Instalock',
-        demo: '#',
+        demo: undefined,
     },
 ];
 
 const Projects = () => {
+    const navigate = useNavigate();
+
     return (
         <Box
             id="projects"
@@ -64,10 +78,10 @@ const Projects = () => {
         >
             <Container maxWidth="lg">
                 <motion.div
-                    initial={{opacity: 0, y: 20}}
-                    whileInView={{opacity: 1, y: 0}}
-                    transition={{duration: 0.15, delay: 0.03}}
-                    viewport={{once: false}}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.15, delay: 0.03 }}
+                    viewport={{ once: false }}
                 >
                     <Typography
                         variant="h2"
@@ -83,89 +97,31 @@ const Projects = () => {
                     <Grid container spacing={4}>
                         {projects.map((project, index) => (
                             <Grid item xs={12} md={6} key={index}>
-                                <motion.div
-                                    whileHover={{scale: 1.02}}
-                                    whileTap={{scale: 0.98}}
-                                >
-                                    <Card
-                                        sx={{
-                                            height: '100%',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            backgroundColor: 'background.paper',
-                                        }}
-                                    >
-                                        <CardMedia
-                                            component="img"
-                                            height="200"
-                                            image={project.image}
-                                            alt={project.title}
-                                        />
-                                        <CardContent sx={{flexGrow: 1}}>
-                                            <Typography
-                                                gutterBottom
-                                                variant="h5"
-                                                component="h2"
-                                                sx={{
-                                                    color: 'text.primary',
-                                                    zIndex: 10,
-                                                    position: 'relative',
-                                                    userSelect: 'text',
-                                                }}
-                                            >
-                                                {project.title}
-                                            </Typography>
-                                            <Typography
-                                                variant="body2"
-                                                color="text.secondary"
-                                                sx={{
-                                                    mb: 2,
-                                                    zIndex: 10,
-                                                    position: 'relative',
-                                                    userSelect: 'text',
-                                                }}
-                                            >
-                                                {project.description}
-                                            </Typography>
-                                            <Box sx={{display: 'flex', gap: 1, flexWrap: 'wrap'}}>
-                                                {project.technologies.map((tech, techIndex) => (
-                                                    <Chip
-                                                        key={techIndex}
-                                                        label={tech}
-                                                        size="small"
-                                                        sx={{
-                                                            backgroundColor: 'primary.main',
-                                                            color: 'white',
-                                                        }}
-                                                    />
-                                                ))}
-                                            </Box>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Button
-                                                size="small"
-                                                startIcon={<FaGithub/>}
-                                                href={project.github}
-                                                target="_blank"
-                                                sx={{color: 'text.primary'}}
-                                            >
-                                                GitHub
-                                            </Button>
-                                            <Button
-                                                size="small"
-                                                startIcon={<FaExternalLinkAlt/>}
-                                                href={project.demo}
-                                                target="_blank"
-                                                sx={{color: 'text.primary'}}
-                                            >
-                                                Demo
-                                            </Button>
-                                        </CardActions>
-                                    </Card>
-                                </motion.div>
+                                <ProjectCard project={project} />
                             </Grid>
                         ))}
                     </Grid>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 6 }}>
+                        <Button
+                            variant="contained"
+                            size="large"
+                            onClick={() => navigate('/all-projects')}
+                            sx={{
+                                px: 4,
+                                py: 1.5,
+                                borderRadius: 2,
+                                fontSize: '1.1rem',
+                                textTransform: 'none',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                                '&:hover': {
+                                    boxShadow: '0 6px 16px rgba(0,0,0,0.15)',
+                                },
+                            }}
+                        >
+                            Daha Fazla Proje Göster
+                        </Button>
+                    </Box>
                 </motion.div>
             </Container>
         </Box>
