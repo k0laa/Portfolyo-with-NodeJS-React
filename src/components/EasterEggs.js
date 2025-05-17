@@ -1,19 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import confetti from 'canvas-confetti';
-import {Box, Snackbar, Alert, Dialog, DialogTitle, DialogContent, TextField, IconButton} from '@mui/material';
-import {FaTimes} from 'react-icons/fa';
+import {Box,} from '@mui/material';
 
 const EasterEggs = () => {
     const [clickCount, setClickCount] = useState(0);
-    const [showMessage, setShowMessage] = useState(false);
-    const [typedKeys, setTypedKeys] = useState('');
-    const [showKoalaRain, setShowKoalaRain] = useState(false);
-    const [konamiCode, setKonamiCode] = useState([]);
-    const [showConsole, setShowConsole] = useState(false);
-    const [consoleInput, setConsoleInput] = useState('');
-    const [invertedColors, setInvertedColors] = useState(false);
 
-    // Logo tıklama sayacı konfeti efekti
     useEffect(() => {
         if (clickCount === 3) {
             confetti({
@@ -31,45 +22,47 @@ const EasterEggs = () => {
         }
     }, [clickCount]);
 
-
-    // Logo tıklama işleyicisi
     const handleLogoClick = () => {
         setClickCount(prev => prev + 1);
     };
 
     return (<>
-            <style>
-                {`
+        <style>
+            {`
                     @keyframes fall {
                         to {
                             transform: translateY(${window.innerHeight}px) rotate(360deg);
                         }
                     }
                 `}
-            </style>
+        </style>
 
+        <Box
+            component="a"
+            href="/#home"
+            onClick={handleLogoClick}
+            sx={{
+                display: 'block', cursor: 'pointer', '&:hover': {
+                    opacity: 0.8,
+                },
+            }}
+        >
             <Box
-                component="a"
-                href="#home"
-                onClick={handleLogoClick}
+                component="img"
+                src="/logo.png"
+                alt="Logo"
                 sx={{
-                    display: 'block', cursor: 'pointer', '&:hover': {
-                        opacity: 0.8,
-                    },
+                    height: {xs: 32, sm: 40},
+                    flexGrow: 1,
+                    position: 'relative',
+                    transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {transform: 'scale(1.18)'},
                 }}
-            >
-                <Box
-                    component="img"
-                    src="/logo.png"
-                    alt="Logo"
-                    sx={{
-                        height: {xs: 32, sm: 40}, flexGrow: 1, display: 'relative',
-                    }}
-                />
-            </Box>
+            />
+        </Box>
 
 
-        </>);
+    </>);
 };
 
 export default EasterEggs; 

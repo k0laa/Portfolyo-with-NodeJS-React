@@ -99,7 +99,7 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                             elevation={0}
                             sx={{
                                 p: 1.5,
-                                backgroundColor: 'background.default',
+                                backgroundColor: 'background.paper',
                                 borderRadius: 2,
                                 border: '1px solid',
                                 borderColor: 'divider',
