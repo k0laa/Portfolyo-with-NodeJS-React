@@ -31,15 +31,10 @@ const Head = () => {
                     <Typography
                         variant="h1"
                         sx={{
-                            fontSize: {xs: '2.5rem', md: '4rem'},
-                            fontWeight: 700,
-                            mb: 2,
                             color: 'text.primary',
                             zIndex: 10,
                             position: 'relative',
                             userSelect: 'text',
-                            width: 'fit-content',
-
                         }}
                     >
                         Merhaba, Ben Buğra 👋
@@ -47,7 +42,6 @@ const Head = () => {
                     <Typography
                         variant="h2"
                         sx={{
-                            fontSize: {xs: '1.5rem', md: '2rem'},
                             color: 'text.secondary',
                             mb: 4,
                             zIndex: 10,
@@ -82,7 +76,6 @@ const Head = () => {
                             sx={{
                                 borderRadius: '8px',
                                 textTransform: 'none',
-                                fontSize: '1.1rem',
                             }}
                         >
                             Projelerimi Gör
@@ -95,7 +88,6 @@ const Head = () => {
                             sx={{
                                 borderRadius: '8px',
                                 textTransform: 'none',
-                                fontSize: '1.1rem',
                             }}
                         >
                             İletişime Geç
