@@ -55,7 +55,7 @@ const Timeline = () => {
                     viewport={{once: false}}
                 >
                     <Typography
-                        variant="h1"
+                        variant="h2"
                         sx={{
                             textAlign: 'center',
                             mb: 6,
