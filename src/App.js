@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {ThemeProvider, Box, CssBaseline} from '@mui/material';
-import {BrowserRouter as Router, Route, Routes, useLocation} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { ThemeProvider, Box, CssBaseline } from '@mui/material';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import {EMAILJS_CONFIG} from './config/constants';
-import {getTheme} from './config/theme';
+import { EMAILJS_CONFIG } from './config/constants';
+import { getTheme } from './config/theme';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -15,6 +15,7 @@ import Timeline from "./components/Timeline";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import AllProjects from './pages/AllProjects';
+import ScrollToTop from './components/common/ScrollToTop';
 
 // Scroll to hash component
 const ScrollToHash = () => {
@@ -47,25 +48,26 @@ function App() {
 
     return (
         <ThemeProvider theme={getTheme(isDarkMode)}>
-            <CssBaseline/>
+            <CssBaseline />
             <Router>
-                <Box className="App" sx={{width: '100%', overflowX: 'hidden', position: 'relative'}}>
+                <Box className="App" sx={{ width: '100%', overflowX: 'hidden', position: 'relative' }}>
                     <ScrollToHash />
-                    <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode}/>
+                    <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
                     <Routes>
                         <Route path="/" element={
                             <>
-                                <Head/>
-                                <About/>
-                                <Skills/>
-                                <Timeline/>
-                                <Projects/>
-                                <Contact/>
+                                <Head />
+                                <About />
+                                <Skills />
+                                <Timeline />
+                                <Projects />
+                                <Contact />
                             </>
-                        }/>
+                        } />
                         <Route path="/all-projects" element={<AllProjects />} />
                     </Routes>
-                    <Footer/>
+                    <Footer />
+                    <ScrollToTop />
                 </Box>
             </Router>
         </ThemeProvider>
