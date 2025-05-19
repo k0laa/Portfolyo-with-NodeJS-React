@@ -21,6 +21,14 @@ const timelineData = [
         icon: <FaHandsHelping size={24}/>,
     },
     {
+        type: 'experience',
+        title: 'Aktif Üye | Yapay Zeka Topluluğu',
+        institution: 'Balıkesir Üniversitesi',
+        date: '2024',
+        description: 'Yapay zekaya olan ilgimi keşfetmemi ve bu alanda yön belirlememi sağlayan ilk akademik topluluk.',
+        icon: <FaHandsHelping size={24}/>,
+    },
+    {
         type: 'education',
         title: 'Bilgisayar Mühendisliği',
         institution: 'Balıkesir Üniversitesi',
