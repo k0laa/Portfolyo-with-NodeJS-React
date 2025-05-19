@@ -117,7 +117,7 @@ const projects = [
     },
 ];
 
-const AllProjects = () => {
+const AllProjects = ({ isDarkMode }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -153,7 +153,7 @@ const AllProjects = () => {
                     <Grid container spacing={4}>
                         {projects.map((project, index) => (
                             <Grid item xs={12} sm={6} md={4} key={index}>
-                                <ProjectCard project={project}/>
+                                <ProjectCard project={project} isDarkMode={isDarkMode}/>
                             </Grid>
                         ))}
                     </Grid>

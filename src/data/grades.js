@@ -35,7 +35,7 @@ export const courses = [
     {name: 'İnternet Programlama', emoji: '🌐', grade: '--', midterm: 80, final: null},
     {name: 'Sayısal Tasarım', emoji: '📐', grade: '--', midterm: 73, final: null},
     {name: 'Sayısal Tasarım Lab', emoji: '🧪', grade: '--', midterm: 90, final: null},
-    {name: 'Görsel Programlama', emoji: '🖼️', grade: '--', midterm: null, final: null},
+    {name: 'Görsel Programlama', emoji: '🖼️', grade: '--', midterm: 100, final: null},
     {name: 'Nümerik Analiz', emoji: '📊', grade: '--', midterm: null, final: null},
     {name: 'Girişimcilik II', emoji: '🚀', grade: '--', midterm: 80, final: null},
     {name: 'İş Hukuku', emoji: '⚖️', grade: '--', midterm: 90, final: null},

@@ -37,25 +37,22 @@ const ScrollToHash = () => {
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Sistem temasını kontrol et
-        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return prefersDarkMode;
+        // Önce localStorage'dan tema tercihini kontrol et
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme !== null) {
+            return savedTheme === 'dark';
+        }
+        // Eğer localStorage'da tema tercihi yoksa, sistem temasını kullan
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
     });
 
     useEffect(() => {
         // EmailJS başlatma
         emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
-        // Sistem teması değişikliğini dinle
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const handleChange = (e) => setIsDarkMode(e.matches);
-
-        mediaQuery.addEventListener('change', handleChange);
-
-        return () => {
-            mediaQuery.removeEventListener('change', handleChange);
-        };
-    }, []);
+        // Tema değiştiğinde localStorage'a kaydet
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    }, [isDarkMode]);
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
@@ -79,7 +76,7 @@ function App() {
                                 <Contact />
                             </>
                         } />
-                        <Route path="/all-projects" element={<AllProjects />} />
+                        <Route path="/all-projects" element={<AllProjects isDarkMode={isDarkMode} />} />
                     </Routes>
                     <Footer />
                     <ScrollToTop />

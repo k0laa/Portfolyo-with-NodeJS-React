@@ -21,6 +21,7 @@ import GradeSimulator from './GradeSimulator';
 const navItems = [
     {name: 'Ana Sayfa', href: '/#home'},
     {name: 'Hakkımda', href: '/#about'},
+    {name: 'Yetenekler', href: '/#skills'},
     {name: 'Projeler', href: '/#projects'},
     {name: 'İletişim', href: '/#contact'},
 ];
