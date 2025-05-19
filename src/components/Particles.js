@@ -84,10 +84,6 @@ const ParticlesBackground = React.memo(() => {
                             enable: true,
                             mode: ['grab', 'bubble'],
                         },
-                        onclick: {
-                            enable: true,
-                            mode: 'push',
-                        },
                         resize: true,
                     },
                     modes: {
