@@ -1,12 +1,41 @@
-import React, {useRef, useState} from 'react';
-import {Container, TextField, Button, Snackbar, Alert, Box} from '@mui/material';
+import React, { useRef, useState, useEffect } from 'react';
+import { Container, TextField, Button, Snackbar, Alert, Box } from '@mui/material';
 import emailjs from '@emailjs/browser';
-import {EMAILJS_CONFIG} from '../config/constants';
+import { EMAILJS_CONFIG } from '../config/constants';
 import SectionTitle from './common/SectionTitle';
 import AnimatedSection from './common/AnimatedSection';
 import SocialLinks from './common/SocialLinks';
 
 const Contact = () => {
+    const [visitorData, setVisitorData] = useState(null);
+    // Kullanıcının IP ve tarayıcı bilgilerini al
+    useEffect(() => {
+        const fetchVisitorData = async () => {
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const ipData = await res.json();
+                const browserData = {
+                    userAgent: navigator.userAgent,
+                    platform: navigator.platform,
+                    screen: `${window.screen.width}x${window.screen.height}`,
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                };
+                setVisitorData({
+                    ip: ipData.ip,
+                    country: ipData.country_name,
+                    city: ipData.city,
+                    region: ipData.region,
+                    isp: ipData.org,
+                    browser: browserData,
+                });
+            } catch (err) {
+                console.error('Ziyaretçi verisi alınamadı:', err);
+            }
+        };
+
+        fetchVisitorData();
+    }, []);
+
     const formRef = useRef();
     const [form, setForm] = useState({
         name: '',
@@ -21,7 +50,7 @@ const Contact = () => {
     });
 
     const handleChange = (e) => {
-        setForm({...form, [e.target.name]: e.target.value});
+        setForm({ ...form, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = (e) => {
@@ -33,6 +62,11 @@ const Contact = () => {
             email: form.email,
             time: new Date().toLocaleString(),
             message: form.message,
+            ip_addr: visitorData?.ip || 'Bilinmiyor',
+            location: `${visitorData?.city || 'Bilinmiyor'}, ${visitorData?.region || 'Bilinmiyor'}, ${visitorData?.country || 'Bilinmiyor'}`,
+            browser_info: visitorData
+                ? `${visitorData.browser.platform}, ${visitorData.browser.userAgent}, ${visitorData.browser.screen}, ${visitorData.browser.timezone}`
+                : 'Bilinmiyor',
         };
 
         emailjs.send(
@@ -67,7 +101,7 @@ const Contact = () => {
     };
 
     const handleCloseSnackbar = () => {
-        setSnackbar({...snackbar, open: false});
+        setSnackbar({ ...snackbar, open: false });
     };
 
     return (
@@ -83,8 +117,8 @@ const Contact = () => {
                 <Container maxWidth="md"
 
                 >
-                    <SectionTitle title="İletişime Geç"/>
-                    <SocialLinks sx={{justifyContent: 'center', mb: 4}}/>
+                    <SectionTitle title="İletişime Geç" />
+                    <SocialLinks sx={{ justifyContent: 'center', mb: 4 }} />
 
                     <form
                         ref={formRef}
@@ -176,12 +210,12 @@ const Contact = () => {
                         open={snackbar.open}
                         autoHideDuration={6000}
                         onClose={handleCloseSnackbar}
-                        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                     >
                         <Alert
                             onClose={handleCloseSnackbar}
                             severity={snackbar.severity}
-                            sx={{width: '100%'}}
+                            sx={{ width: '100%' }}
                         >
                             {snackbar.message}
                         </Alert>
