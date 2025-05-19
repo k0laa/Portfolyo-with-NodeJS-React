@@ -36,10 +36,25 @@ const ScrollToHash = () => {
 };
 
 function App() {
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Sistem temasını kontrol et
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return prefersDarkMode;
+    });
 
     useEffect(() => {
+        // EmailJS başlatma
         emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+        // Sistem teması değişikliğini dinle
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleChange = (e) => setIsDarkMode(e.matches);
+
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => {
+            mediaQuery.removeEventListener('change', handleChange);
+        };
     }, []);
 
     const toggleTheme = () => {
