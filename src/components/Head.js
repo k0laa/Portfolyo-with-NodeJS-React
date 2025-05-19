@@ -1,6 +1,6 @@
 import React from 'react';
-import {Box, Typography, Container, Button} from '@mui/material';
-import {motion} from 'framer-motion';
+import { Box, Typography, Container, Button } from '@mui/material';
+import { motion } from 'framer-motion';
 import ParticlesBackground from './Particles';
 
 
@@ -19,14 +19,14 @@ const Head = () => {
                 backgroundColor: 'background.default',
             }}
         >
-            <ParticlesBackground/>
+            <ParticlesBackground />
             <Container maxWidth="lg">
                 <motion.div
-                    initial={{opacity: 0, y: 20}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.15, delay: 0.03}}
-                    sx={{zIndex: 2}}
-                    viewport={{once: false}}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.15, delay: 0.03 }}
+                    sx={{ zIndex: 2 }}
+                    viewport={{ once: false }}
                 >
                     <Typography
                         variant="h1"
@@ -55,7 +55,7 @@ const Head = () => {
                     <Typography
                         variant="body1"
                         sx={{
-                            maxWidth: '600px',
+                            maxWidth: '750px',
                             mb: 4,
                             color: 'text.secondary',
                             zIndex: 10,
@@ -64,10 +64,12 @@ const Head = () => {
                             width: 'fit-content',
                         }}
                     >
-                        Gömülü sistemler, yapay zeka ve web teknolojileri konusunda tutkulu bir geliştiriciyim.
-                        Savunma sanayi ve otonom sistemlerde AI ile fark yaratmayı hedefliyorum.
+                        Gömülü sistemler ve yapay zekâ teknolojilerine ilgi duyan bir geliştiriciyim.
+                        Amacım otonom sistemlerde yapay zekâyla yenilikçi çözümler üretirken aynı zamanda
+                        açık kaynak kültürünü destekleyerek
+                        bilgiyi paylaşmak ve birlikte gelişmek.
                     </Typography>
-                    <Box sx={{display: 'flex', gap: 2}}>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
                         <Button
                             variant="contained"
                             color="primary"
