@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {Box, Typography, Paper, IconButton, Modal} from '@mui/material';
-import {motion} from 'framer-motion';
-import {FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaTimes} from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Box, Typography, Paper, IconButton, Modal } from '@mui/material';
+import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import defaultImage from '../assets/default_image.svg';
 
-const ProjectCard = ({project}) => {
+const ProjectCard = ({ project, isDarkMode }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -23,9 +23,9 @@ const ProjectCard = ({project}) => {
     };
 
     return (<motion.div
-        initial={{opacity: 0, y: 20}}
-        animate={{opacity: 1, y: 0}}
-        transition={{duration: 0.5}}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
     >
         <Paper
             elevation={0}
@@ -34,7 +34,7 @@ const ProjectCard = ({project}) => {
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                backgroundColor: 'background.paper',
+                backgroundColor: isDarkMode ? 'rgba(28, 28, 28, 0.6)' : 'rgba(235, 235, 235, 0.6)',
                 borderRadius: 3,
                 border: '1px solid',
                 borderColor: 'divider',
@@ -42,9 +42,13 @@ const ProjectCard = ({project}) => {
                 '&:hover': {
                     transform: 'translateY(-5px)', boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
                 },
+                zIndex: 10,
+                position: 'relative',
+                userSelect: 'text',
+                pointerEvents: 'auto'
             }}
         >
-            <Box sx={{position: 'relative', mb: 2, borderRadius: 2, overflow: 'hidden'}}>
+            <Box sx={{ position: 'relative', mb: 2, borderRadius: 2, overflow: 'hidden' }}>
                 <Box
                     sx={{
                         position: 'relative',
@@ -118,7 +122,7 @@ const ProjectCard = ({project}) => {
                             zIndex: 2,
                         }}
                     >
-                        <FaChevronLeft size={24} color='#6C63FF'/>
+                        <FaChevronLeft size={24} color='#6C63FF' />
                     </Box>
                     <Box
                         onClick={(e) => {
@@ -138,7 +142,7 @@ const ProjectCard = ({project}) => {
                             zIndex: 2,
                         }}
                     >
-                        <FaChevronRight size={24} color="#6C63FF"/>
+                        <FaChevronRight size={24} color="#6C63FF" />
                     </Box>
                     <Box
                         sx={{
@@ -324,7 +328,7 @@ const ProjectCard = ({project}) => {
             >
                 {project.description}
             </Typography>
-            <Box sx={{display: 'flex', gap: 1, flexWrap: 'wrap'}}>
+            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                 {project.technologies.map((tech, index) => (<Box
                     key={index}
                     sx={{
@@ -340,7 +344,7 @@ const ProjectCard = ({project}) => {
                     {tech}
                 </Box>))}
             </Box>
-            <Box sx={{display: 'flex', gap: 1, mt: 2}}>
+            <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
                 {project.github && (<IconButton
                     href={project.github}
                     target="_blank"
@@ -351,7 +355,7 @@ const ProjectCard = ({project}) => {
                         },
                     }}
                 >
-                    <FaGithub size={20}/>
+                    <FaGithub size={20} />
                 </IconButton>)}
                 {project.demo && (<IconButton
                     href={project.demo}
@@ -363,7 +367,7 @@ const ProjectCard = ({project}) => {
                         },
                     }}
                 >
-                    <FaExternalLinkAlt size={20}/>
+                    <FaExternalLinkAlt size={20} />
                 </IconButton>)}
             </Box>
         </Paper>

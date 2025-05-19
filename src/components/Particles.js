@@ -32,11 +32,11 @@ const ParticlesBackground = React.memo(() => {
                         type: 'circle',
                     },
                     opacity: {
-                        value: 0.5,
-                        random: true,
+                        value: 0.3,
+                        random: false,
                         anim: {
                             enable: true,
-                            speed: 1,
+                            speed: 0.5,
                             opacity_min: 0.1,
                             sync: false,
                         },
@@ -46,21 +46,25 @@ const ParticlesBackground = React.memo(() => {
                         random: true,
                         anim: {
                             enable: true,
-                            speed: 2,
+                            speed: 1,
                             size_min: 0.1,
                             sync: false,
                         },
                     },
                     links: {
                         enable: true,
-                        distance: 150,
+                        distance: 180,
                         color: '#6C63FF',
                         opacity: 0.4,
                         width: 1,
+                        triangles: {
+                            enable: true,
+                            opacity: 0.01
+                        }
                     },
                     move: {
                         enable: true,
-                        speed: 0.6,
+                        speed: 0.4,
                         direction: 'none',
                         random: true,
                         straight: false,
@@ -78,19 +82,38 @@ const ParticlesBackground = React.memo(() => {
                     events: {
                         onhover: {
                             enable: true,
-                            mode: 'grab',
+                            mode: ['grab', 'bubble'],
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push',
                         },
                         resize: true,
                     },
                     modes: {
                         grab: {
-                            distance: 120,
+                            distance: 150,
                             links: {
+                                enable: true,
+                                distance: 180,
+                                color: '#6C63FF',
                                 opacity: 1,
+                                width: 1,
+                                triangles: {
+                                    enable: true,
+                                    opacity: 0.05
+                                }
                             },
                         },
+                        bubble: {
+                            distance: 200,
+                            size: 6,
+                            duration: 2,
+                            opacity: 0.8,
+                            speed: 3
+                        },
                         push: {
-                            particles_nb: 4,
+                            particles_nb: 3,
                         },
                     },
                 },

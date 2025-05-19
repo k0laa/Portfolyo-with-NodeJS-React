@@ -75,7 +75,7 @@ function App() {
                                 <About />
                                 <Skills />
                                 <Timeline />
-                                <Projects />
+                                <Projects isDarkMode={isDarkMode} />
                                 <Contact />
                             </>
                         } />

@@ -65,7 +65,7 @@ const projects = [
     },
 ];
 
-const Projects = () => {
+const Projects = ({ isDarkMode }) => {
     const navigate = useNavigate();
 
     return (
@@ -74,6 +74,7 @@ const Projects = () => {
             sx={{
                 py: 8,
                 backgroundColor: 'background.default',
+                zIndex: 2,
             }}
         >
             <Container maxWidth="lg">
@@ -89,6 +90,10 @@ const Projects = () => {
                             textAlign: 'center',
                             mb: 6,
                             color: 'text.primary',
+                            zIndex: 10,
+                            position: 'relative',
+                            userSelect: 'text',
+                            pointerEvents: 'auto'
                         }}
                     >
                         Projelerim
@@ -97,7 +102,7 @@ const Projects = () => {
                     <Grid container spacing={4}>
                         {projects.map((project, index) => (
                             <Grid item xs={12} md={6} key={index}>
-                                <ProjectCard project={project} />
+                                <ProjectCard project={project} isDarkMode={isDarkMode} />
                             </Grid>
                         ))}
                     </Grid>
