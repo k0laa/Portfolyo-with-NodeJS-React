@@ -76,7 +76,7 @@ Eğer bu projeyle ilgili herhangi bir sorunuz veya öneriniz varsa, lütfen issu
 
 ## Lisans
 
-Bu proje [GPL-3.0](LISANCE) lisansı ile lisanslanmıştır.
+Bu proje [GPL-3.0](LICENSE) lisansı ile lisanslanmıştır.
 
 ---
 
