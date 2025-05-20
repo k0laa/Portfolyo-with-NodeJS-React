@@ -18,7 +18,10 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
             gradeEmoji: emoji,
             color,
             midterm: course.midterm,
-            final: course.final
+            final: course.final,
+            odev: course.odev,
+            uygulama1: course.uygulama1,
+            uygulama2: course.uygulama2
         });
     };
 
@@ -45,15 +48,15 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                 }
             }}
         >
-            <Box sx={{ 
+            <Box sx={{
                 p: 2,
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column'
             }}>
-                <Box sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
                     alignItems: 'center',
                     mb: 1
                 }}>
@@ -129,6 +132,38 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                                 >
                                     Vize: {result.midterm}
                                 </Typography>
+                                {result.odev && (
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: 'text.secondary',
+                                            fontSize: '0.8rem',
+                                        }}
+                                    >
+                                        Ödev: {result.odev}
+                                    </Typography>
+                                )}
+                                {result.uygulama1  && (
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: 'text.secondary',
+                                            fontSize: '0.8rem',
+                                        }}
+                                    >
+                                        Uyg1: {result.uygulama1}
+                                    </Typography>)}
+                                {result.uygulama2 && (
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: 'text.secondary',
+                                            fontSize: '0.8rem',
+                                        }}
+                                    >
+                                        Uyg2: {result.uygulama2}
+                                    </Typography>
+                                )}
                                 <Typography
                                     variant="body2"
                                     sx={{

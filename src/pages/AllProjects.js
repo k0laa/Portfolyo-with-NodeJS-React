@@ -60,7 +60,7 @@ const projects = [
             'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/main.png?raw=true',
             'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/example.png?raw=true',
         ],
-        technologies: ['Python', 'PyQt5', 'Thinker'],
+        technologies: ['Python', 'PyQt5', 'pyautogui'],
         github: 'https://github.com/k0laa/Valorant_Instalock',
         demo: undefined,
     },

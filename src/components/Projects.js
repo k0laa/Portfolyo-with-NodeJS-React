@@ -15,7 +15,7 @@ const projects = [
             'https://github.com/k0laa/Yemek_Tarif_Asistani/blob/main/resources/random_recipe.png?raw=true',
 
         ],
-        technologies: ['Python', 'AI', 'Web Scraping'],
+        technologies: ['Python', 'Flask', 'spoonacular API', 'HTML', 'CSS', 'JavaScript'],
         github: 'https://github.com/k0laa/Yemek_Tarif_Asistani',
         demo: 'https://yemek-tarif-asistani.onrender.com/',
     },
@@ -59,7 +59,7 @@ const projects = [
             'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/main.png?raw=true',
             'https://github.com/k0laa/Valorant_Instalock/blob/main/resources/example.png?raw=true',
         ],
-        technologies: ['Python', 'Automation'],
+        technologies: ['Python', 'PyQt5', 'pyautogui'],
         github: 'https://github.com/k0laa/Valorant_Instalock',
         demo: undefined,
     },
