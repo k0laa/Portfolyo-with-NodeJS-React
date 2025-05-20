@@ -76,7 +76,7 @@ Eğer bu projeyle ilgili herhangi bir sorunuz veya öneriniz varsa, lütfen issu
 
 ## Lisans
 
-Bu proje [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html) lisansı ile lisanslanmıştır.
+Bu proje [GPL-3.0](LISANCE) lisansı ile lisanslanmıştır.
 
 ---
 
