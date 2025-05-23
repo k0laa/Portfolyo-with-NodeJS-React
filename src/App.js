@@ -15,6 +15,7 @@ import Timeline from "./components/Timeline";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import AllProjects from './pages/AllProjects';
+import Webhooks from './pages/Webhooks';
 import ScrollToTop from './components/common/ScrollToTop';
 
 // Scroll to hash component
@@ -77,6 +78,7 @@ function App() {
                             </>
                         } />
                         <Route path="/all-projects" element={<AllProjects isDarkMode={isDarkMode} />} />
+                        <Route path="/webhooks" element={<Webhooks />} />
                     </Routes>
                     <Footer />
                     <ScrollToTop />
