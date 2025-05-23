@@ -1,18 +1,11 @@
-const express = require('express');
-const cors = require('cors');
 const crypto = require('crypto');
 
-const app = express();
-const port = process.env.PORT || 5000;
+export default async function handler(req, res) {
+    // Sadece POST isteklerini kabul et
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
 
-// GitHub webhook secret
-const WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET;
-
-app.use(cors());
-app.use(express.json());
-
-// GitHub webhook endpoint'i
-app.post('/api/webhooks/github', (req, res) => {
     try {
         // GitHub'dan gelen imzaları doğrula
         const signature256 = req.headers['x-hub-signature-256'];
@@ -27,7 +20,7 @@ app.post('/api/webhooks/github', (req, res) => {
 
         // SHA-256 imzasını kontrol et
         if (signature256) {
-            const hmac256 = crypto.createHmac('sha256', WEBHOOK_SECRET);
+            const hmac256 = crypto.createHmac('sha256', process.env.GITHUB_WEBHOOK_SECRET);
             const digest256 = 'sha256=' + hmac256.update(payload).digest('hex');
             if (signature256 === digest256) {
                 isValid = true;
@@ -36,7 +29,7 @@ app.post('/api/webhooks/github', (req, res) => {
 
         // SHA-1 imzasını kontrol et
         if (signature) {
-            const hmac = crypto.createHmac('sha1', WEBHOOK_SECRET);
+            const hmac = crypto.createHmac('sha1', process.env.GITHUB_WEBHOOK_SECRET);
             const digest = 'sha1=' + hmac.update(payload).digest('hex');
             if (signature === digest) {
                 isValid = true;
@@ -59,7 +52,7 @@ app.post('/api/webhooks/github', (req, res) => {
         console.log('Payload:', JSON.stringify(req.body, null, 2));
 
         // Başarılı yanıt döndür
-        res.status(200).json({ 
+        return res.status(200).json({ 
             message: 'Webhook received',
             event,
             deliveryId,
@@ -67,10 +60,6 @@ app.post('/api/webhooks/github', (req, res) => {
         });
     } catch (error) {
         console.error('Webhook error:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: 'Internal server error' });
     }
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-}); 
+} 
