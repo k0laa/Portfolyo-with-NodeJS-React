@@ -20,9 +20,4 @@ export const SOCIAL_LINKS = [
         url: 'https://instagram.com/___kolaa___',
         label: 'Instagram',
     },
-    {
-        icon: 'FaEnvelope',
-        url: 'mailto:bugrayalcn1@gmail.com',
-        label: 'Email',
-    },
 ]; 

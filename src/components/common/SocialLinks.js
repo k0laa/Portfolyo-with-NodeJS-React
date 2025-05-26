@@ -8,7 +8,6 @@ const iconComponents = {
     FaGithub,
     FaLinkedin,
     FaInstagram,
-    FaEnvelope,
 };
 
 const SocialLinks = ({ sx = {} }) => {
@@ -33,7 +32,7 @@ const SocialLinks = ({ sx = {} }) => {
                                 },
                             }}
                         >
-                            <IconComponent size={24} />
+                            <IconComponent size={30} />
                         </IconButton>
                     </motion.div>
                 );

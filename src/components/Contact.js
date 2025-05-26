@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Container, TextField, Button, Snackbar, Alert, Box } from '@mui/material';
+import { Container, TextField, Button, Snackbar, Alert, Box, Grid, Typography, Paper } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/constants';
 import SectionTitle from './common/SectionTitle';
 import AnimatedSection from './common/AnimatedSection';
 import SocialLinks from './common/SocialLinks';
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 const Contact = () => {
     const [visitorData, setVisitorData] = useState(null);
@@ -105,7 +106,6 @@ const Contact = () => {
     };
 
     return (
-
         <Box
             id="contact"
             sx={{
@@ -114,97 +114,254 @@ const Contact = () => {
             }}
         >
             <AnimatedSection id="contact">
-                <Container maxWidth="md"
-
-                >
+                <Container maxWidth="lg">
                     <SectionTitle title="İletişime Geç" />
-                    <SocialLinks sx={{ justifyContent: 'center', mb: 4 }} />
 
-                    <form
-                        ref={formRef}
-                        onSubmit={handleSubmit}
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '24px',
-                            maxWidth: '600px',
-                            margin: '0 auto',
-                        }}
-                    >
-                        <TextField
-                            required
-                            fullWidth
-                            label="İsim"
-                            name="name"
-                            value={form.name}
-                            onChange={handleChange}
-                            sx={{
-                                '& .MuiOutlinedInput-root': {
-                                    '& fieldset': {
-                                        borderColor: 'rgba(108, 99, 255, 0.3)',
-                                    },
-                                    '&:hover fieldset': {
-                                        borderColor: 'primary.main',
-                                    },
-                                },
-                            }}
-                        />
-                        <TextField
-                            required
-                            fullWidth
-                            label="E-posta"
-                            name="email"
-                            type="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            sx={{
-                                '& .MuiOutlinedInput-root': {
-                                    '& fieldset': {
-                                        borderColor: 'rgba(108, 99, 255, 0.3)',
-                                    },
-                                    '&:hover fieldset': {
-                                        borderColor: 'primary.main',
-                                    },
-                                },
-                            }}
-                        />
-                        <TextField
-                            required
-                            fullWidth
-                            label="Mesaj"
-                            name="message"
-                            multiline
-                            rows={4}
-                            value={form.message}
-                            onChange={handleChange}
-                            sx={{
-                                '& .MuiOutlinedInput-root': {
-                                    '& fieldset': {
-                                        borderColor: 'rgba(108, 99, 255, 0.3)',
-                                    },
-                                    '&:hover fieldset': {
-                                        borderColor: 'primary.main',
-                                    },
-                                },
-                            }}
-                        />
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            size="large"
-                            disabled={loading}
-                            sx={{
-                                mt: 2,
-                                py: 1.5,
-                                backgroundColor: 'primary.main',
-                                '&:hover': {
-                                    backgroundColor: 'primary.dark',
-                                },
-                            }}
-                        >
-                            {loading ? 'Gönderiliyor...' : 'Gönder'}
-                        </Button>
-                    </form>
+                    <Grid container spacing={5}>
+                        {/* Sol Taraf - İletişim Bilgileri ve Sosyal Medya */}
+                        <Grid item xs={12} md={4}>
+                            <Grid container spacing={5}>
+                                {/* İletişim Bilgileri Kartı */}
+                                <Grid item xs={12}>
+                                    <Paper
+                                        elevation={3}
+                                        sx={{
+                                            p: 3,
+                                            backgroundColor: 'background.paper',
+                                            borderRadius: 2,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: 3.5,
+                                            position: 'relative',
+                                        }}
+                                    >
+                                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
+                                            İletişim Bilgileri
+                                        </Typography>
+
+                                        <Box
+                                            component="a"
+                                            href="mailto:bugrayalcn1@gamil.com"
+                                            sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 2,
+                                                textDecoration: 'none',
+                                                color: 'text.secondary',
+                                                transition: 'all 0.3s ease',
+                                                '&:hover': {
+                                                    color: 'primary.main',
+                                                    transform: 'translateX(5px)',
+                                                }
+                                            }}
+                                        >
+                                            <FaEnvelope size={20} color="#6c63ff" />
+                                            <Typography variant="body1">
+                                                bugrayalcn1@gamil.com
+                                            </Typography>
+                                        </Box>
+
+                                        <Box
+                                            component="a"
+                                            href="tel:+90599478093"
+                                            sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 2,
+                                                textDecoration: 'none',
+                                                color: 'text.secondary',
+                                                transition: 'all 0.3s ease',
+                                                '&:hover': {
+                                                    color: 'primary.main',
+                                                    transform: 'translateX(5px)',
+                                                }
+                                            }}
+                                        >
+                                            <FaPhone size={20} color="#6c63ff" />
+                                            <Typography variant="body1">
+                                                +90 539 3947 8093
+                                            </Typography>
+                                        </Box>
+
+                                        <Box
+                                            component="a"
+                                            href="https://www.google.com/maps/search/?api=1&query=Balıkesir,Türkiye"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 2,
+                                                textDecoration: 'none',
+                                                color: 'text.secondary',
+                                                transition: 'all 0.3s ease',
+                                                '&:hover': {
+                                                    color: 'primary.main',
+                                                    transform: 'translateX(5px)',
+                                                }
+                                            }}
+                                        >
+                                            <FaMapMarkerAlt size={20} color="#6c63ff" />
+                                            <Typography variant="body1">
+                                                Balıkesir, Türkiye
+                                            </Typography>
+                                        </Box>
+                                    </Paper>
+                                </Grid>
+
+                                {/* Sosyal Medya Kartı */}
+                                <Grid item xs={12}>
+                                    <Paper
+                                        elevation={3}
+                                        sx={{
+                                            p: 3,
+                                            backgroundColor: 'background.paper',
+                                            borderRadius: 2,
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: 3.5,
+                                            position: 'relative',
+                                        }}
+                                    >
+                                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
+                                            Sosyal Medya
+                                        </Typography>
+                                        <SocialLinks
+                                            sx={{
+                                                flexDirection: 'row',
+                                                justifyContent: 'flex-start',
+                                                gap: 3,
+                                            }}
+                                        />
+                                    </Paper>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        {/* Sağ Taraf - İletişim Formu */}
+                        <Grid item xs={12} md={8}>
+                            <Paper
+                                elevation={3}
+                                sx={{
+                                    p: 4,
+                                    backgroundColor: 'background.paper',
+                                    borderRadius: 2,
+                                    position: 'relative',
+                                }}
+                            >
+                                <form
+                                    ref={formRef}
+                                    onSubmit={handleSubmit}
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '24px',
+                                    }}
+                                >
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12} sm={6}>
+                                            <TextField
+                                                required
+                                                fullWidth
+                                                label="İsim"
+                                                name="name"
+                                                value={form.name}
+                                                onChange={handleChange}
+                                                sx={{
+                                                    '& .MuiOutlinedInput-root': {
+                                                        '& fieldset': {
+                                                            borderColor: 'rgba(108, 99, 255, 0.3)',
+                                                        },
+                                                        '&:hover fieldset': {
+                                                            borderColor: 'primary.main',
+                                                        },
+                                                    },
+                                                }}
+                                            />
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <TextField
+                                                required
+                                                fullWidth
+                                                label="Soyisim"
+                                                name="surname"
+                                                value={form.surname}
+                                                onChange={handleChange}
+                                                sx={{
+                                                    '& .MuiOutlinedInput-root': {
+                                                        '& fieldset': {
+                                                            borderColor: 'rgba(108, 99, 255, 0.3)',
+                                                        },
+                                                        '&:hover fieldset': {
+                                                            borderColor: 'primary.main',
+                                                        },
+                                                    },
+                                                }}
+                                            />
+                                        </Grid>
+                                    </Grid>
+
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        label="E-posta"
+                                        name="email"
+                                        type="email"
+                                        value={form.email}
+                                        onChange={handleChange}
+                                        sx={{
+                                            '& .MuiOutlinedInput-root': {
+                                                '& fieldset': {
+                                                    borderColor: 'rgba(108, 99, 255, 0.3)',
+                                                },
+                                                '&:hover fieldset': {
+                                                    borderColor: 'primary.main',
+                                                },
+                                            },
+                                        }}
+                                    />
+
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        label="Mesaj"
+                                        name="message"
+                                        multiline
+                                        rows={4}
+                                        value={form.message}
+                                        onChange={handleChange}
+                                        sx={{
+                                            '& .MuiOutlinedInput-root': {
+                                                '& fieldset': {
+                                                    borderColor: 'rgba(108, 99, 255, 0.3)',
+                                                },
+                                                '&:hover fieldset': {
+                                                    borderColor: 'primary.main',
+                                                },
+                                            },
+                                        }}
+                                    />
+
+                                    <Button
+                                        type="submit"
+                                        variant="contained"
+                                        size="large"
+                                        disabled={loading}
+                                        sx={{
+                                            mt: 2,
+                                            py: 1.5,
+                                            backgroundColor: 'primary.main',
+                                            '&:hover': {
+                                                backgroundColor: 'primary.dark',
+                                            },
+                                        }}
+                                    >
+                                        {loading ? 'Gönderiliyor...' : 'Mesajı Gönder'}
+                                    </Button>
+                                </form>
+                            </Paper>
+                        </Grid>
+                    </Grid>
 
                     <Snackbar
                         open={snackbar.open}
@@ -222,7 +379,6 @@ const Contact = () => {
                     </Snackbar>
                 </Container>
             </AnimatedSection>
-
         </Box>
     );
 };
