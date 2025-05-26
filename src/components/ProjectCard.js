@@ -28,13 +28,13 @@ const ProjectCard = ({ project, isDarkMode }) => {
         transition={{ duration: 0.5 }}
     >
         <Paper
-            elevation={0}
+            elevation={3}
             sx={{
                 p: 2,
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                backgroundColor: isDarkMode ? 'rgba(28, 28, 28, 0.6)' : 'rgba(235, 235, 235, 0.6)',
+                backgroundColor: 'background.paper',
                 borderRadius: 3,
                 border: '1px solid',
                 borderColor: 'divider',
@@ -48,6 +48,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
                 pointerEvents: 'auto'
             }}
         >
+            
             <Box sx={{ position: 'relative', mb: 2, borderRadius: 2, overflow: 'hidden' }}>
                 <Box
                     sx={{

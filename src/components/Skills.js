@@ -152,6 +152,7 @@ const Skills = () => {
                                         transform: 'translateY(-5px)',
                                         boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                                     },
+                                    position: 'relative',
                                 }}
                             >
 
@@ -216,6 +217,7 @@ const Skills = () => {
                                                     transform: 'translateY(-5px)',
                                                     boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                                                 },
+                                                position: 'relative',
                                             }}
                                         >
                                             <Typography

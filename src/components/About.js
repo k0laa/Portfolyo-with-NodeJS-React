@@ -81,6 +81,7 @@ const About = () => {
                                             transform: 'translateY(-5px)',
                                             boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                                         },
+                                        position: 'relative',
                                     }}>
                                     <Typography
                                         variant="h4"
@@ -183,6 +184,7 @@ const About = () => {
                                                             transform: 'translateY(-5px)',
                                                             boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
                                                         },
+                                                        position: 'relative',
                                                     }}
                                                 >
                                                     <Box
