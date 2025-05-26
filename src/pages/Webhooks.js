@@ -6,32 +6,25 @@ const Webhooks = () => {
     const [logs, setLogs] = useState([]);
 
     useEffect(() => {
-        // Webhook endpoint'ini dinle
-        const handleWebhook = async (req, res) => {
-            try {
-                const payload = req.body;
-                const event = req.headers['x-github-event'];
-                const timestamp = new Date().toISOString();
+        // SSE bağlantısını kur
+        const eventSource = new EventSource('https://bugrayalcin.com/api/events');
 
-                // Yeni log'u state'e ekle
-                setLogs(prevLogs => [{
-                    event,
-                    timestamp,
-                    payload: JSON.stringify(payload, null, 2)
-                }, ...prevLogs].slice(0, 100)); // Son 100 log'u tut
-
-                res.status(200).json({ message: 'Webhook received' });
-            } catch (error) {
-                console.error('Webhook error:', error);
-                res.status(500).json({ error: 'Internal server error' });
-            }
+        eventSource.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            setLogs(prevLogs => [{
+                event: data.event,
+                timestamp: new Date().toISOString(),
+                payload: JSON.stringify(data.payload, null, 2)
+            }, ...prevLogs].slice(0, 100));
         };
 
-        // Webhook endpoint'ini kaydet
-        window.addEventListener('webhook', handleWebhook);
+        eventSource.onerror = (error) => {
+            console.error('SSE error:', error);
+            eventSource.close();
+        };
 
         return () => {
-            window.removeEventListener('webhook', handleWebhook);
+            eventSource.close();
         };
     }, []);
 
@@ -69,40 +62,46 @@ const Webhooks = () => {
                             borderRadius: 2,
                         }}
                     >
-                        <List>
-                            {logs.map((log, index) => (
-                                <React.Fragment key={index}>
-                                    <ListItem>
-                                        <ListItemText
-                                            primary={
-                                                <Typography
-                                                    variant="subtitle1"
-                                                    sx={{
-                                                        color: 'text.primary',
-                                                        fontWeight: 500,
-                                                    }}
-                                                >
-                                                    {log.event} - {new Date(log.timestamp).toLocaleString()}
-                                                </Typography>
-                                            }
-                                            secondary={
-                                                <Typography
-                                                    variant="body2"
-                                                    sx={{
-                                                        color: 'text.secondary',
-                                                        fontFamily: 'monospace',
-                                                        whiteSpace: 'pre-wrap',
-                                                    }}
-                                                >
-                                                    {log.payload}
-                                                </Typography>
-                                            }
-                                        />
-                                    </ListItem>
-                                    {index < logs.length - 1 && <Divider />}
-                                </React.Fragment>
-                            ))}
-                        </List>
+                        {logs.length === 0 ? (
+                            <Typography variant="body1" color="text.secondary" align="center">
+                                Henüz webhook logu bulunmuyor.
+                            </Typography>
+                        ) : (
+                            <List>
+                                {logs.map((log, index) => (
+                                    <React.Fragment key={index}>
+                                        <ListItem>
+                                            <ListItemText
+                                                primary={
+                                                    <Typography
+                                                        variant="subtitle1"
+                                                        sx={{
+                                                            color: 'text.primary',
+                                                            fontWeight: 500,
+                                                        }}
+                                                    >
+                                                        {log.event} - {new Date(log.timestamp).toLocaleString()}
+                                                    </Typography>
+                                                }
+                                                secondary={
+                                                    <Typography
+                                                        variant="body2"
+                                                        sx={{
+                                                            color: 'text.secondary',
+                                                            fontFamily: 'monospace',
+                                                            whiteSpace: 'pre-wrap',
+                                                        }}
+                                                    >
+                                                        {log.payload}
+                                                    </Typography>
+                                                }
+                                            />
+                                        </ListItem>
+                                        {index < logs.length - 1 && <Divider />}
+                                    </React.Fragment>
+                                ))}
+                            </List>
+                        )}
                     </Paper>
                 </motion.div>
             </Container>

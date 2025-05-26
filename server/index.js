@@ -1,76 +1,49 @@
 const express = require('express');
 const cors = require('cors');
-const crypto = require('crypto');
 
 const app = express();
-const port = process.env.PORT || 5000;
 
-// GitHub webhook secret
-const WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET;
-
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// GitHub webhook endpoint'i
-app.post('/api/webhooks/github', (req, res) => {
-    try {
-        // GitHub'dan gelen imzaları doğrula
-        const signature256 = req.headers['x-hub-signature-256'];
-        const signature = req.headers['x-hub-signature'];
+// SSE bağlantılarını tutacak array
+const clients = new Set();
 
-        if (!signature && !signature256) {
-            return res.status(401).json({ error: 'No signature provided' });
-        }
+// SSE endpoint'i
+app.get('/events', (req, res) => {
+    res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
+    });
 
-        const payload = JSON.stringify(req.body);
-        let isValid = false;
+    // Yeni client'ı kaydet
+    clients.add(res);
 
-        // SHA-256 imzasını kontrol et
-        if (signature256) {
-            const hmac256 = crypto.createHmac('sha256', WEBHOOK_SECRET);
-            const digest256 = 'sha256=' + hmac256.update(payload).digest('hex');
-            if (signature256 === digest256) {
-                isValid = true;
-            }
-        }
-
-        // SHA-1 imzasını kontrol et
-        if (signature) {
-            const hmac = crypto.createHmac('sha1', WEBHOOK_SECRET);
-            const digest = 'sha1=' + hmac.update(payload).digest('hex');
-            if (signature === digest) {
-                isValid = true;
-            }
-        }
-
-        if (!isValid) {
-            return res.status(401).json({ error: 'Invalid signature' });
-        }
-
-        // Webhook olayını işle
-        const event = req.headers['x-github-event'];
-        const deliveryId = req.headers['x-github-delivery'];
-        const installationId = req.headers['x-github-hook-installation-target-id'];
-
-        // Log'u kaydet
-        console.log(`GitHub Webhook - Event: ${event}`);
-        console.log(`Delivery ID: ${deliveryId}`);
-        console.log(`Installation ID: ${installationId}`);
-        console.log('Payload:', JSON.stringify(req.body, null, 2));
-
-        // Başarılı yanıt döndür
-        res.status(200).json({ 
-            message: 'Webhook received',
-            event,
-            deliveryId,
-            installationId
-        });
-    } catch (error) {
-        console.error('Webhook error:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
+    // Client bağlantısı koptuğunda
+    req.on('close', () => {
+        clients.delete(res);
+    });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-}); 
+// Webhook endpoint'i
+app.post('/webhook', (req, res) => {
+    const event = req.headers['x-github-event'];
+    const payload = req.body;
+
+    // Tüm bağlı SSE istemcilerine webhook verisini gönder
+    const message = `data: ${JSON.stringify({
+        event,
+        payload
+    })}\n\n`;
+
+    clients.forEach(client => {
+        client.write(message);
+    });
+
+    res.status(200).json({ message: 'Webhook received' });
+});
+
+// Vercel için export
+module.exports = app; 
