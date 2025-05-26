@@ -14,7 +14,6 @@ import {
     SiSqlite,
     SiOpencv,
     SiPytorch,
-    SiDrone,
     SiJetbrains, SiUbuntu, SiUnity, SiPhoton, SiSelenium, SiPlotly, SiNumpy, SiVsco, SiCurl,
 } from 'react-icons/si';
 import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi';
