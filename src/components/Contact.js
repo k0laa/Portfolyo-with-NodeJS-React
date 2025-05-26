@@ -163,7 +163,7 @@ const Contact = () => {
 
                                         <Box
                                             component="a"
-                                            href="tel:+90599478093"
+                                            href="tel:+905399478093"
                                             sx={{
                                                 display: 'flex',
                                                 alignItems: 'center',
@@ -179,7 +179,7 @@ const Contact = () => {
                                         >
                                             <FaPhone size={20} color="#6c63ff" />
                                             <Typography variant="body1">
-                                                +90 539 3947 8093
+                                                +90 539 947 8093
                                             </Typography>
                                         </Box>
 
