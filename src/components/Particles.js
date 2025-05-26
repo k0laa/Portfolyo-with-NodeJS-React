@@ -37,8 +37,6 @@ const ParticlesBackground = React.memo(() => {
                         anim: {
                             enable: true,
                             speed: 0.5,
-                            opacity_min: 0.1,
-                            sync: false,
                         },
                     },
                     size: {
@@ -47,20 +45,14 @@ const ParticlesBackground = React.memo(() => {
                         anim: {
                             enable: true,
                             speed: 1,
-                            size_min: 0.1,
-                            sync: false,
                         },
                     },
                     links: {
                         enable: true,
                         distance: 180,
                         color: '#6C63FF',
-                        opacity: 0.4,
+                        opacity: 0.6,
                         width: 1,
-                        triangles: {
-                            enable: true,
-                            opacity: 0.01
-                        }
                     },
                     move: {
                         enable: true,
@@ -103,7 +95,7 @@ const ParticlesBackground = React.memo(() => {
                         },
                         bubble: {
                             distance: 200,
-                            size: 6,
+                            size: 4.5,
                             duration: 2,
                             opacity: 0.8,
                             speed: 3
