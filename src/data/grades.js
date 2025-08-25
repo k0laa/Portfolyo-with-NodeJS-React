@@ -32,13 +32,13 @@ export const courses = [
     { name: 'Girişimcilik', emoji: '🚀', grade: 'AA', midterm: 100, final: 85 },
     { name: 'Bilgisayar Destekli Teknik Çizim', emoji: '🖊️', grade: 'AA', midterm: 100, final: 84 },
 
-    { name: 'İnternet Programlama', emoji: '🌐', grade: '--', midterm: 80, final: null },
-    { name: 'Sayısal Tasarım', emoji: '📐', grade: '--', midterm: 73, final: null },
-    { name: 'Sayısal Tasarım Lab', emoji: '🧪', grade: '--', midterm: 90, final: null, uygulama1: 97, uygulama2: '--' },
-    { name: 'Görsel Programlama', emoji: '🖼️', grade: '--', midterm: 100, final: null },
-    { name: 'Nümerik Analiz', emoji: '📊', grade: '--', midterm: 70, final: null },
-    { name: 'Girişimcilik II', emoji: '🚀', grade: '--', midterm: 80, final: null },
-    { name: 'İş Hukuku', emoji: '⚖️', grade: '--', midterm: 90, final: null },
+    { name: 'İnternet Programlama', emoji: '🌐', grade: 'AA', midterm: 80, final: 95 },
+    { name: 'Sayısal Tasarım', emoji: '📐', grade: 'BB', midterm: 73, final: 75 },
+    { name: 'Sayısal Tasarım Lab', emoji: '🧪', grade: 'AA', midterm: 90, final: 81, uygulama: 97 },
+    { name: 'Görsel Programlama', emoji: '🖼️', grade: 'AA', midterm: 100, final: 100 },
+    { name: 'Nümerik Analiz', emoji: '📊', grade: 'CB', midterm: 70, final: 53 },
+    { name: 'Girişimcilik II', emoji: '🚀', grade: 'CB', midterm: 80, final: 58 },
+    { name: 'İş Hukuku', emoji: '⚖️', grade: 'BB', midterm: 90, final: 60 },
     /*{name: 'Staj I', emoji: '🛠️', grade: '--', midterm: null, final: null},*/
 ];
 

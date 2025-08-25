@@ -8,8 +8,8 @@ const timelineData = [
         type: 'experience',
         title: 'Yazılım Geliştirici – Savaşan İHA Takımı',
         institution: 'MISYA Topluluğu | Balıkesir Üniversitesi',
-        date: '2024 - Devam ediyor',
-        description: 'MISYA topluluğunun Savaşan İHA takımında, PX4 ile Gazebo simülasyon ortamında YOLO tabanlı nesne tespiti ve otonom sistemler üzerine çalışmaktayım.',
+        date: '2024 - 2025',
+        description: 'MISYA topluluğunun Savaşan İHA takımında, PX4 ile Gazebo simülasyon ortamında YOLO tabanlı nesne tespiti ve otonom sistemler üzerine çalıştım',
         icon: <FaHandsHelping size={24}/>,
     },
     {
