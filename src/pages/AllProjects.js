@@ -5,7 +5,6 @@ import ProjectCard from '../components/ProjectCard';
 import Particles from '../components/Particles';
 import {useEffect} from 'react';
 
-
 const projects = [
     {
         title: 'Yemek Tarifi Asistanı',
@@ -19,6 +18,20 @@ const projects = [
         technologies: ['Python', 'Flask', 'spoonacular API', 'HTML', 'CSS', 'JavaScript'],
         github: 'https://github.com/k0laa/Yemek_Tarif_Asistani',
         demo: 'https://yemek-tarif-asistani.onrender.com/',
+    },
+    {
+        title: 'Territory Wars',
+        description: 'Unity ve PhotonNetwork ile yapılmış android mobil çevrimiçi alan kapma oyunudur.',
+        images: [
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/menu.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/join.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/freeze.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/double.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/speed.jpg?raw=true'
+        ],
+        technologies: ['Python', 'GitHub API'],
+        github: 'https://github.com/k0laa/Fake_Commit_Design',
+        demo: 'https://drive.google.com/drive/folders/11iROUtuIlKCJSB36I6Pbg_o4FwZNt-pG',
     },
     {
         title: 'Fake Commit Design',
@@ -50,6 +63,14 @@ const projects = [
         ],
         technologies: ['Python', 'PyQt5', 'SQLite'],
         github: 'https://github.com/k0laa/Veterinerlik_Uygulamasi',
+        demo: undefined,
+    },
+    {
+        title: 'Python-Record-Linkage-Toolkit',
+        description: 'Staj görevlerimden biri olan Record Linkage Toolkit kütüphanesi incelemesi için dokümantasyon yardımı ile hazılanmış bir repodur.',
+        images: [],
+        technologies: ['Python', 'Record-Linkage'],
+        github: 'https://github.com/k0laa/Python-Record-Linkage-Toolkit',
         demo: undefined,
     },
     {

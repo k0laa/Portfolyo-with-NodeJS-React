@@ -20,16 +20,18 @@ const projects = [
         demo: 'https://yemek-tarif-asistani.onrender.com/',
     },
     {
-        title: 'Fake Commit Design',
-        description: 'GitHub profilinizin katkı grafiğini dilediğiniz şekil ve resimlerle süsleyebileceğiniz bir araç.',
+        title: 'Territory Wars',
+        description: 'Unity ve PhotonNetwork ile yapılmış android mobil çevrimiçi alan kapma oyunudur.',
         images: [
-            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/icon_3.png?raw=true',
-            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/example_paint.png?raw=true',
-            'https://github.com/k0laa/Fake_Commit_Design/blob/main/resources/empty_grid.png?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/menu.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/join.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/freeze.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/double.jpg?raw=true',
+            'https://github.com/k0laa/TerritoryWars-Unity/blob/master/AppPhotos/speed.jpg?raw=true'
         ],
         technologies: ['Python', 'GitHub API'],
         github: 'https://github.com/k0laa/Fake_Commit_Design',
-        demo: undefined,
+        demo: 'https://drive.google.com/drive/folders/11iROUtuIlKCJSB36I6Pbg_o4FwZNt-pG',
     },
     {
         title: 'Veterinerlik Uygulaması',

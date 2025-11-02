@@ -6,6 +6,14 @@ import {FaGraduationCap, FaHandsHelping} from 'react-icons/fa';
 const timelineData = [
     {
         type: 'experience',
+        title: 'Stajyer Yazılım Geliştirici ',
+        institution: 'BT10 Bilgi Teknolojileri',
+        date: 'Ağustos 2025',
+        description: 'İlk zorunlu stajımı yaptım. BT10 Bilgi Teknolojileri şirketinde kurumsal veri benzerliği projesinde yer aldım. Python, Java, SQLite, Maven, LINDO, Google OR-Tools gibi çeşitli alanlarde eğitim aldım ve çalıştım. ',
+        icon: <FaHandsHelping size={24}/>,
+    },
+    {
+        type: 'experience',
         title: 'Yazılım Geliştirici – Savaşan İHA Takımı',
         institution: 'MISYA Topluluğu | Balıkesir Üniversitesi',
         date: '2024 - 2025',
