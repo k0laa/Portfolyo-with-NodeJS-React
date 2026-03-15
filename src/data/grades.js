@@ -40,6 +40,14 @@ export const courses = [
     { name: 'Girişimcilik II', emoji: '🚀', grade: 'CB', midterm: 80, final: 58 },
     { name: 'İş Hukuku', emoji: '⚖️', grade: 'BB', midterm: 90, final: 60 },
     /*{name: 'Staj I', emoji: '🛠️', grade: '--', midterm: null, final: null},*/
+
+    { name: 'Bilgisayar Organizasyonu', emoji: '🖥️', grade: 'AA', midterm: 90, final: 96, odev: 100 },
+    { name: 'Bilgisayar Ağları', emoji: '🌐', grade: 'AA', midterm: 77, final: 84 },
+    { name: 'Biçimsel Diller ve Otomatlar', emoji: '🤖', grade: 'BA', midterm: 85, final: 60 },
+    { name: 'Veritabanı Yönetim Sistemleri', emoji: '🗄️', grade: 'AA', midterm: 97, final: 98 },
+    { name: 'Biyoinformatiğe Giriş', emoji: '🧬', grade: 'BA', midterm: 85, final: 90 },
+    { name: 'İş Sağlığı ve Güvenliği I', emoji: '🦺', grade: 'BB', midterm: 95, final: 75 },
+    { name: 'Teknoloji Bağımlılığı', emoji: '📱', grade: 'AA', midterm: 90, final: 97 },
 ];
 
 export const gradeInfo = {

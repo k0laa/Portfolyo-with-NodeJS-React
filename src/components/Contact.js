@@ -141,7 +141,7 @@ const Contact = () => {
 
                                         <Box
                                             component="a"
-                                            href="mailto:bugrayalcn1@gamil.com"
+                                            href="mailto:bugrayalcn1@gmail.com"
                                             sx={{
                                                 display: 'flex',
                                                 alignItems: 'center',
@@ -157,7 +157,7 @@ const Contact = () => {
                                         >
                                             <FaEnvelope size={20} color="#6c63ff" />
                                             <Typography variant="body1">
-                                                bugrayalcn1@gamil.com
+                                                bugrayalcn1@gmail.com
                                             </Typography>
                                         </Box>
 
