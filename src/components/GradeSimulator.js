@@ -9,15 +9,15 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
 
     const generateRandomGrade = () => {
         const course = courses[Math.floor(Math.random() * courses.length)];
-        const { emoji, color } = gradeInfo[course.grade];
+        const { emoji, color } = gradeInfo[course.harfnotu];
 
         setResult({
             course: course.name,
             emoji: course.emoji,
-            grade: course.grade,
+            harfnotu: course.harfnotu,
             gradeEmoji: emoji,
             color,
-            midterm: course.midterm,
+            vize: course.vize,
             final: course.final,
             odev: course.odev,
             uygulama1: course.uygulama1,
@@ -130,7 +130,7 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                                         fontSize: '0.8rem',
                                     }}
                                 >
-                                    Vize: {result.midterm}
+                                    Vize: {result.vize}
                                 </Typography>
                                 {result.odev && (
                                     <Typography
@@ -187,7 +187,7 @@ const GradeSimulator = ({ open, onClose, anchorEl }) => {
                                     fontSize: '1rem',
                                 }}
                             >
-                                {result.grade} {result.gradeEmoji}
+                                {result.harfnotu} {result.gradeEmoji}
                             </Typography>
                         </Paper>
                     </motion.div>
